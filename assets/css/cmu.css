@@ -1,0 +1,106 @@
+@font-face {
+    font-family: "New Computer Modern";
+    src: url("../fonts/newcomputermodern/NewCM10-Book.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "New Computer Modern";
+    src: url("../fonts/newcomputermodern/NewCM10-BookItalic.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "New Computer Modern";
+    src: url("../fonts/newcomputermodern/NewCM10-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "New Computer Modern";
+    src: url("../fonts/newcomputermodern/NewCM10-BoldItalic.otf") format("opentype");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "New Computer Modern Mono";
+    src: url("../fonts/newcomputermodern/NewCMMono10-Book.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "New Computer Modern Mono";
+    src: url("../fonts/newcomputermodern/NewCMMono10-BookItalic.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "New Computer Modern Mono";
+    src: url("../fonts/newcomputermodern/NewCMMono10-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "New Computer Modern Mono";
+    src: url("../fonts/newcomputermodern/NewCMMono10-BoldItalic.otf") format("opentype");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Concrete";
+    src: url("../fonts/concrete/cmunorm.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Concrete";
+    src: url("../fonts/concrete/cmunoti.woff") format("woff");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Concrete";
+    src: url("../fonts/concrete/cmunobx.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Concrete";
+    src: url("../fonts/concrete/cmunobi.woff") format("woff");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+body {
+    font-family: "New Computer Modern Mono", serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: "Concrete", serif;
+    font-weight: 400;
+    line-height: 1.2;
+}
