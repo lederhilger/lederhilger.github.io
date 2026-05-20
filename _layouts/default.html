@@ -4,10 +4,47 @@
     <meta charset="utf-8">
     <title>{{ page.title | default: site.title }}</title>
     <link rel="stylesheet" href="{{ '/assets/css/cmu.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
   </head>
   <body>
-    <main>
-      {{ content }}
-    </main>
+    <div class="wrapper">
+      <header>
+	<h1>
+	  <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+	</h1>
+
+        <p>{{ site.description }}</p>
+
+	{% if site.email %}
+	  <p class="contact">
+	    Email: <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+	  </p>
+	{% endif %}
+
+	{% if site.profile_links %}
+	  <ul class="profile-links">
+	    {% for link in site.profile_links %}
+	      <li>
+	        <a href="{{ link.url }}" aria-label="{{ link.label }}" title="{{ link.label }}">
+		  <img src="{{ link.icon | relative_url }}" alt="" class="profile-icon">
+		</a>
+              </li>
+	    {% endfor %}
+	  </ul>  
+	{% endif %}
+	
+	<nav aria-label="Primary navigation">
+	  <ul>
+	    <li><a href="{{ '/cv/' | relative_url }}">CV</a></li>
+	    <li><a href="{{ '/weblog/' | relative_url }}">WEBLOG</a></li>
+	    <li><a href="https://lederhilger.github.io/meksp100">MEKSP100</a></li>
+	  </ul>
+	</nav>
+      </header>
+
+      <section>
+	{{ content }}
+      </section>
+    </div>
   </body>
 </html>  

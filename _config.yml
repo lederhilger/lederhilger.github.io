@@ -1,7 +1,19 @@
 title: Simon Lederhilger
-description: Homepage
+description: My academic and personal webpage
 url: "https://lederhilger.github.io"
 baseurl: ""
+email: "simonled@uio.no"
+
+profile_links:
+  - label: GitHub
+    url: https://github.com/lederhilger
+    icon: /assets/img/icons/invertocat.svg
+  - label: GitLab
+    url: https://gitlab.com/lederhilger
+    icon: /assets/img/icons/gitlab.svg
+  - label: LinkedIn
+    url: https://linkedin.com/in/simonled
+    icon: /assets/img/icons/in.svg
 
 theme: jekyll-theme-minimal
 
