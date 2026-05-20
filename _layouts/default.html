@@ -13,6 +13,10 @@
 	  <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
 	</h1>
 
+	{% if site.logo %}
+	  <img class="portrait" src="{{ site.logo | relative_url }}" alt="Profile of Simon">
+	{% endif %}
+
         <p>{{ site.description }}</p>
 
 	{% if site.email %}

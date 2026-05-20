@@ -117,6 +117,13 @@ a {
     }
 }
 
+.portrait {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 0 16px;
+}
+
 .contact {
     margin: 0 0 16px;
 }
