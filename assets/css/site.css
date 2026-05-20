@@ -76,17 +76,17 @@ nav a {
     text-decoration: none;
     color: #f2ece4;
     background: #735236;
-    border: 1px solid #bfa380;
     border-radius: 8px
 }
 
-a {
-  color: #a4b5bf
+nav a:hover,
+nav a:focus {
+    color: #f2ece4;
+    background: #403521;
 }
 
-a:hover,
-a:focus {
-    color: #555936;
+a {
+  color: #73551f
 }
 
 @media screen and (max-width: 960px) {
