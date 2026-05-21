@@ -46,6 +46,11 @@ section > :first-child {
     margin-top: 0;
 }
 
+section p {
+    text-align: justify;
+    hyphens: auto;
+}
+
 header h1 {
     margin: 0 0 12px;
 }
@@ -115,6 +120,11 @@ a {
     body {
 	padding: 15px;
     }
+}
+
+.smallcaps {
+    font-variant-caps: small-caps;
+    font-variant-numeric: oldstyle-nums;
 }
 
 .portrait {
