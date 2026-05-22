@@ -1,0 +1,206 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% SIMON's preamble %%%%%%%%%%%%%%%%%%%%%%%
+\ProvidesClass{simonspreamble} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Version 22052026, UiO Oslo, Norway, for LuaLaTeX %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% WARNINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{silence}
+\WarningFilter{latexfont}{Size substitutions with differences}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This warning is a result of the xfrac package, and is ignored%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% PAGE LAYOUT SETTINGS %%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{fancyhdr}
+\RequirePackage{titling}
+\RequirePackage{geometry}
+\geometry{a4paper, margin=1in}
+\RequirePackage{changepage}
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+      \vskip .5em}}
+\newcommand{\@institution}{}
+\newcommand{\institution}[1]{\gdef\@institution{#1}}
+\renewcommand{\maketitlehookb}{%
+  \ifx\@institution\@empty
+  \else
+    \begin{center}
+      \large\@institution
+    \end{center}
+    \vskip .5em
+  \fi
+}
+
+
+\pagestyle{fancy}
+\cfoot{}
+\rfoot{\thepage}
+\lhead{\sectionmark}
+\rhead{\subsectionmark}
+%%%%%%%%%%%%%%%%%%%%% TWO-COLUMN FOOTNOTES %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{dblfnote}
+\DFNalwaysdouble
+\RequirePackage{perpage}
+\MakePerPage{footnote}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The package dblfnote is highly incompatible with the %%%%%%%%%
+% multicol package. No workaround has been found. %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% OTHER LAYOUT %%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{enumerate}
+\RequirePackage{listings}
+\RequirePackage{caption}
+\RequirePackage{subcaption}
+\captionsetup[figure]{format = hang}
+\RequirePackage{floatrow}
+\RequirePackage{sidecap}
+\RequirePackage{subfiles}
+\RequirePackage{csquotes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% MATH TYPESETTING PACKAGES %%%%%%%%%%%%%%%%%%%
+\RequirePackage{mathtools}
+\RequirePackage{unicode-math}
+\unimathsetup{mathbf = sym, math-style = ISO, bold-style = ISO}
+\ExplSyntaxOn
+\bool_gset_true:N\g__um_upGreek_bool
+\bool_gset_true:N\g__um_bfupGreek_bool
+\ExplSyntaxOff
+\RequirePackage{xfrac}
+\RequirePackage{tensor}
+\RequirePackage{mathrsfs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% LANGUAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage[%
+  russian,
+  greek,
+  japanese,
+  gothic,
+  chinese,
+  main = english
+]{babel}
+\RequirePackage{luatexja-fontspec}
+\ltjsetparameter{jacharrange={-2,-3}}
+\setmainjfont{Noto Serif CJK JP}
+\newjfontfamily\jjp{Noto Serif CJK JP}
+\newjfontfamily\jsc{Noto Serif CJK SC}
+\RequirePackage{newcomputermodern}
+\RequirePackage{textalpha}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% ALLOWING FOR OTHER FONTS %%%%%%%%%%%%%%%%%%%%
+\RequirePackage{fontspec}
+\RequirePackage{accsupp}
+\newfontfamily\gothicfont{Ulfilas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% GRAPHICS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{graphicx}
+\RequirePackage{subcaption}
+\RequirePackage{tikz}
+\usetikzlibrary{patterns, 3d, arrows, perspective,%
+  calc, bending, positioning}
+\usepgfmodule{nonlineartransformations}
+\RequirePackage{tikz-3dplot}
+\RequirePackage{pdfrender}
+\newcommand{\zukovskijfp}{%
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[inner sep=0pt] at (current page.center) {%
+      \includegraphics[width=\paperwidth, height=\paperheight]%
+        {figures/title-page/title-page.pdf}%
+    };
+  \end{tikzpicture}%
+}
+\renewcommand{\maketitlehooka}{\zukovskijfp}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% CODE/PROGRAMMING TYPESETTING (MATLAB) %%%%%%%%%%%%
+\RequirePackage[numbered,framed]{matlab-prettifier}
+\RequirePackage{algorithm}
+\RequirePackage{algpseudocode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{verse}
+\newcommand{\attrib}[1]{%
+  \nopagebreak{\raggedleft\footnotesize #1\par}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% BIBLIOGRAPHY %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage[language = auto,%
+    autolang = other,%
+    bibencoding = utf8,%
+    maxbibnames = 5,%
+    backend = biber]{biblatex}
+\renewcommand*{\mkbibnamefamily}[1]{\textsc{#1}}
+\DeclareNameAlias{author}{family-given}
+\addbibresource{bibliography.bib}
+\WarningFilter{biblatex}{Patching footnotes failed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% REFERENCING %%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\disable@package@load{auxhook}{}
+\RequirePackage{hyperref}
+\hypersetup{%
+    colorlinks,%
+    linkcolor={black},%
+    citecolor={black},%
+    urlcolor={black}%
+}
+\RequirePackage[noabbrev]{cleveref}
+\numberwithin{equation}{section}
+%%%%%%%%%%%%%%%%%% REFERENCING SUB-EQUATIONS %%%%%%%%%%%%%%%%%%%
+\RequirePackage{xstring}
+\DeclareDocumentCommand{\subeqref}{m o}{%
+    \edef\c{\detokenize{#1}}%
+    \edef\lbracetoken{\string{}%
+    \edef\rbracetoken{\string}}%
+    \StrBetween{\c}{\lbracetoken}{\rbracetoken}[\temp]%
+    (\hyperref[\temp]{#1#2})%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% GLOSSARIES %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage[%
+  symbols, nomain, record, stylemods = {topic}, nostyles
+]{glossaries-extra}
+\renewcommand{\glstopicSubNameFont}[1]{#1}
+\renewcommand{\glstopicMarker}[1]{%
+ \pdfbookmark[2]{\glsentryname{#1}}{\currentglossary.#1}%
+}
+\glsxtrsetgrouptitle{latin}{Latin letters}
+\glsxtrsetgrouptitle{greek}{Greek letters}
+\glsxtrsetgrouptitle{cyrillic}{Cyrillic letters}
+\glsxtrsetgrouptitle{math}{Mathematical symbols}
+\GlsXtrLoadResources[%
+  src = {%
+    symboltopics,
+    latinsymbols,
+    greeksymbols,
+    mathsymbols,
+    cyrillicsymbols
+  },
+  field-aliases = {%
+    identifier = parent
+  },
+  type = {symbols},
+  set-widest
+]
+\renewcommand*\glspostdescription{\dotfill}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% MATH STUFF %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{mathglyphs}
+\RequirePackage{microtype}

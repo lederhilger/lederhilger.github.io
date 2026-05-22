@@ -1,0 +1,280 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% SIMON's math glyphs %%%%%%%%%%%%%%%%%%%%%%
+\ProvidesClass{mathglyphs.sty} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Version 25022026, UiO Oslo, Norway, for LuaLaTeX %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% TYPESETTING PRETTIFYING %%%%%%%%%%%%%%%%%%%%
+\RequirePackage{xcolor}
+\RequirePackage{scalerel}
+\DeclareEmphSequence{\slshape}
+%%%%%%%%%%%% Scaled down \in symbol for subscripts %%%%%%%%%%%%%
+\newcommand{\smallerrel}[1]{%
+    \mathrel{\mathpalette\smallerrelaux{#1}}}
+\newcommand{\smallerrelaux}[2]{%
+    \raisebox{.1ex}{\scalebox{.75}{$#1#2$}}}
+\newcommand{\smallin}{\smallerrel{\in}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% Pi-theorem Matrix %%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{nicematrix}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% PHYSICS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage[version=4]{mhchem}
+\RequirePackage{siunitx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% MATHEMATICS %%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% THEOREM ENVIRONMENTS %%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{amsthm}
+\RequirePackage{xpatch}
+\patchcmd{\@thm}{\trivlist}{\list{}{%
+    \leftmargin=3em \rightmargin=3em}}{}{}%
+\patchcmd{\@endtheorem}{\endtrivlist}{\endlist}{}{}
+\newtheorem{theorem}{Theorem}[section]
+\renewcommand\th@plain{\slshape}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% ANALYSIS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\reals}{\mathbb{R}}
+\newcommand{\complexes}{\mathbb{C}}
+\newcommand{\naturals}{\mathbb{N}}
+\newcommand{\euclidean}{\mathbb{E}}
+\newcommand{\dsphere}{\mathbb{S}}
+\DeclareMathOperator{\Tangent}{T}
+\DeclareMathOperator{\id}{id}
+\newcommand{\righthook}{↪}
+%%%%%%%%%%%%%%%%%%%%%%% differentials %%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\dee}{\mathrm{d}}
+\newcommand{\Dee}{\mathrm{D}}
+\newcommand{\deet}{\partial_t}
+\newcommand{\deex}{\partial_x}
+\newcommand{\deey}{\partial_y}
+\newcommand{\deez}{\partial_z}
+\newcommand{\codee}{\mathrm{đ}}
+%%%%%%%%%%%%%%%%% mathrm-type operators %%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareMathOperator{\legendre}{P}
+\DeclareMathOperator{\gegenbauer}{C}
+\DeclareMathOperator{\green}{G}
+\DeclareMathOperator{\hypergeometric}{F}
+\DeclareMathOperator{\regular}{R}
+\DeclareMathOperator{\singular}{S}
+\newcommand{\spherical}{\Upsilon}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\DeclareMathOperator{\Curl}{curl}
+\DeclareMathOperator{\Div}{div}
+\DeclareMathOperator{\Grad}{grad}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\signum}{sgn}
+\DeclareMathOperator{\amplitudinis}{am}
+\DeclareMathOperator{\sn}{sn}
+\DeclareMathOperator{\cn}{cn}
+\DeclareMathOperator{\dn}{dn}
+\DeclareMathOperator{\ellK}{K}
+\DeclareMathOperator{\ellE}{E}
+\DeclareMathOperator{\ellF}{F}
+\DeclareMathOperator{\AGM}{M}
+\DeclareMathOperator{\principalvalue}{\mathrm{pv}}
+%%%%%%%%%%%%%%%%%%%%%% paired delimiters %%%%%%%%%%%%%%%%%%%%%%%
+\DeclarePairedDelimiter\absl\lvert\rvert
+\newcommand{\eqdef}{\overset{\mathrm{def}}{=\joinrel=}}
+\newcommand{\iprod}{\mathbin{\raisebox{\depth}{$\lrcorner$}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% TENSORS & VECTORS %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% HANDY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\uvec}{\mathbf{u}}
+\newcommand{\ufrak}{\mathfrak{u}}
+\newcommand{\Uvec}{\mathbf{U}}
+\newcommand{\vfrak}{\mathfrak{v}}
+\newcommand{\xvec}{\mathbf{x}}
+\newcommand{\evec}{\mathbf{e}}
+\newcommand{\avec}{\mathbf{a}}
+\newcommand{\afrak}{\mathfrak{a}}
+\newcommand{\bvec}{\mathbf{b}}
+\newcommand{\bfrak}{\mathfrak{b}}
+\newcommand{\cvec}{\mathbf{c}}
+\newcommand{\dvec}{\mathbf{d}}
+\newcommand{\ovec}{\mathbf{o}}
+\newcommand{\rvec}{\mathbf{r}}
+\newcommand{\svec}{\mathbf{s}}
+\newcommand{\tvec}{\mathbf{t}}
+\newcommand{\tfrak}{\mathfrak{t}}
+\newcommand{\dfrak}{\mathfrak{d}}
+\newcommand{\pfrak}{\mathfrak{p}}
+\newcommand{\metricg}{\mathrm{g}}
+\newcommand{\metrictensor}{\mathfrak{g}}
+\newcommand{\jacobi}[1]{\mathbf{\mathfrak{J}_{#1}}}
+\newcommand{\lieder}[1]{{£}_{#1}}
+\newcommand{\hamilton}{\mathcal{H}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%% PHYSICAL %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\stress}{\mathbf{\mathfrak{P}}}
+\newcommand{\strain}{\mathbf{\mathfrak{e}}}
+\newcommand{\addedmass}{\mathbf{\mathfrak{m}}}
+\newcommand{\gravity}{\mathrm{g}}
+\newcommand{\vgravity}{\symbfup{g}}
+\newcommand{\youngsmodulus}{\mathrm{E}}
+\newcommand{\vorticity}{\mathbf{w}}
+\newcommand{\vorticityfrak}{\mathfrak{w}}
+\newcommand{\density}{\varrho}
+\newcommand{\viscosity}{\mu}
+%%%%%%%%%%%%%%%%%%%%%%%%% UNIT VECTORS %%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ihat}{\textbf{\textit{î}}}
+\newcommand{\jhat}{\textbf{\textit{ĵ}}}
+\newcommand{\khat}{\symbf{\hat{k}}}
+\newcommand{\nhat}{\mathbf{\hat{n}}}
+\newcommand{\rhat}{\boldsymbol{\hat{\kaufmannr}}}
+\newcommand{\thetahat}{\boldsymbol{\hat{\vartheta}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% DISCRETE NOTATION %%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\xtt}{{\textit{\texttt{x}}}}
+\newcommand{\ytt}{{\textit{\texttt{y}}}}
+\newcommand{\ztt}{{\textit{\texttt{z}}}}
+\newcommand{\ttt}{{\textit{\texttt{t}}}}
+\newcommand{\deltt}{{\mathtt{{\Delta t}}}}
+\newcommand{\nhattt}{\hat{\texttt{\textit{n}}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% DIMONESIONLESS OR OTHERWISE NAMED NUMBERS %%%%%%%%%%%
+\newcommand{\Reynolds}{\mathrm{Re}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% NON-STANDARD MATH SYMBOLS %%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% CUSTOM SYMBOLS %%%%%%%%%%%%%%%%%%%%%%%%
+%%%% POLAR R %%%%
+\newcommand{\kaufmannr}{\mathchoice
+  {\mbox{$\resizebox{1ex}{1ex}{%
+        \includegraphics{SYMBOLS/Kaufmann_r_bold.pdf}}$}}
+  {\mbox{$\resizebox{1ex}{1ex}{%
+        \includegraphics{SYMBOLS/Kaufmann_r_bold.pdf}}$}}
+  {\scalebox{.7}{\mbox{$\resizebox{1ex}{1ex}{%
+          \includegraphics{SYMBOLS/Kaufmann_r_bold.pdf}}$}}}
+  {\scalebox{.5}{\mbox{$\resizebox{1ex}{1ex}{%
+          \includegraphics{SYMBOLS/Kaufmann_r_bold.pdf}}$}}}
+}
+%%%% ETA TYPEWRITER %%%%
+\newcommand{\etatt}{\texttt{\textit{\texteta}}}
+%%%% THETA TYPEWRITER %%%%
+\newcommand{\Thetatt}{\texttt{\textTheta}}
+\newcommand{\thetatt}{\texttt{\texttheta}}
+%%%% phi TYPEWRITER %%%%
+\newcommand{\phitt}{\texttt{\textit{\textphi}}}
+%%%% delta TELETYPE %%%%
+\newcommand{\deltatt}{\texttt{\textit{\textdelta}}}
+\newcommand{\dxtt}{\texttt{\textit{\textdelta{x}}}}
+%%%% DISPLACED VOLUME %%%%
+%%%%%%%% QUINARIUS %%%%%%%%
+\newcommand{\displacedvolume}{𐆗}
+%%%%%%%% OTHAL %%%%%%%%
+\DeclareRobustCommand{\Othal}{%
+    \TextOrMath
+      {%
+        \BeginAccSupp{method=pdfstringdef,unicode,ActualText={𐍉}}%
+        {\gothicfont O}%
+        \EndAccSupp{}%
+      }%
+      {%
+        \mathord{\text{%
+          \BeginAccSupp{method=pdfstringdef,unicode,ActualText={𐍉}}%
+          {\gothicfont O}%
+          \EndAccSupp{}%
+        }}%
+      }%
+  }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% ROMAN NUMERALS %%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\romani}{\mathrm{\textsc{i}}}
+\newcommand{\romanii}{\mathrm{\textsc{i}\kern-.06em\textsc{i}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Unicode roman numerals %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% RUSSIAN MATH %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cyrillic math families
+\newfam\cyrupfam
+\newfam\cyritfam
+\newfam\cyrbffam
+\newfam\cyrbfitfam
+% upright Cyrillic fonts
+\font\cyruptext="NewCM10-Book:mode=node;script=cyrl;" at 10pt
+\font\cyrupscript="NewCM08-Book:mode=node;script=cyrl;" at 7pt
+\font\cyrupscriptscript="NewCM08-Book:mode=node;script=cyrl;" at 5pt
+\textfont\cyrupfam=\cyruptext
+\scriptfont\cyrupfam=\cyrupscript
+\scriptscriptfont\cyrupfam=\cyrupscriptscript
+% italic Cyrillic fonts
+\font\cyrittext="NewCM10-BookItalic:mode=node;script=cyrl;" at 10pt
+\font\cyritscript="NewCM08-BookItalic:mode=node;script=cyrl;" at 7pt
+\font\cyritscriptscript="NewCM08-BookItalic:mode=node;script=cyrl;" at 5pt
+\textfont\cyritfam=\cyrittext
+\scriptfont\cyritfam=\cyritscript
+\scriptscriptfont\cyritfam=\cyritscriptscript
+% bold upright Cyrillic fonts
+\font\cyrbftext="NewCM10-Bold:mode=node;script=cyrl;" at 10pt
+\font\cyrbfscript="NewCM10-Bold:mode=node;script=cyrl;" at 7pt
+\font\cyrbfscriptscript="NewCM10-Bold:mode=node;script=cyrl;" at 5pt
+\textfont\cyrbffam=\cyrbftext
+\scriptfont\cyrbffam=\cyrbfscript
+\scriptscriptfont\cyrbffam=\cyrbfscriptscript
+% bold italic Cyrillic fonts
+\font\cyrbfittext="NewCM10-BoldItalic:mode=node;script=cyrl;" at 10pt
+\font\cyrbfitscript="NewCM10-BoldItalic:mode=node;script=cyrl;" at 7pt
+\font\cyrbfitscriptscript="NewCM10-BoldItalic:mode=node;script=cyrl;" at 5pt
+\textfont\cyrbfitfam=\cyrbfittext
+\scriptfont\cyrbfitfam=\cyrbfitscript
+\scriptscriptfont\cyrbfitfam=\cyrbfitscriptscript
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% lowercase italic
+\Umathcode"0436 = 7 \cyritfam "0436 % ж
+\Umathcode"0447 = 7 \cyritfam "0447 % ч
+\Umathcode"0437 = 7 \cyritfam "0437 % з
+\Umathcode"04E1 = 7 \cyritfam "04E1 % ӡ
+\Umathcode"04FF = 7 \cyritfam "04FF % ӿ
+% bold italic
+\Umathchardef\bzhe = 7 \cyrbfitfam "0436
+\Umathchardef\bche = 7 \cyrbfitfam "0447
+\Umathchardef\bezh = 7 \cyrbfitfam "04E1
+\Umathchardef\bze  = 7 \cyrbfitfam "0437
+\Umathchardef\bkha = 7 \cyrbfitfam "04FF
+% uppercase upright
+\Umathcode"0414 = 7 \cyrupfam "0414 % Д
+\Umathcode"0427 = 7 \cyrupfam "0427 % Ч
+\Umathcode"040F = 7 \cyrupfam "040F % Џ
+\Umathcode"0492 = 7 \cyrupfam "0492 % Ғ
+% teletype
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\rde}{д}
+\newcommand{\rDe}{Д}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CHE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\che}{ч}
+\newcommand{\Che}{Ч}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DZHE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Dzhe}{Џ}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ZHE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\zhe}{ж}
+\newcommand{\zhett}{\mathtt{ж}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% KHA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\kha}{ӿ}
+%%%%%%%%%%%%%%%%%%%%%%% CYRILLIC OMEGA %%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\cOmega}{Ꞷ}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ZE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ze}{з}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EZH %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ezh}{ӡ}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% GWA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Gwamma}{Ғ}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% ZHWE (ꚅ) %%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\zhwe}{\textit{\textcyrillic{ꚅ}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

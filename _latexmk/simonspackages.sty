@@ -1,0 +1,82 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% SIMON's packages %%%%%%%%%%%%%%%%%%%%%%%
+\ProvidesClass{simonspackages} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Version 07012025, UiO Oslo, Norway, for LuaLaTeX %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% For individually compiled TiKZ files %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% MATH TYPESETTING PACKAGES %%%%%%%%%%%%%%%%%%%
+\RequirePackage{mathtools}
+\RequirePackage{unicode-math}
+\unimathsetup{mathbf = sym, math-style = ISO, bold-style = ISO}
+\ExplSyntaxOn
+\bool_gset_true:N\g__um_upGreek_bool
+\bool_gset_true:N\g__um_bfupGreek_bool
+\ExplSyntaxOff
+\RequirePackage{xfrac}
+\RequirePackage{tensor}
+\RequirePackage{mathrsfs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% LANGUAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage[%
+  russian,
+  greek,
+  japanese,
+  gothic,
+  chinese,
+  main = english
+]{babel}
+\RequirePackage{luatexja-fontspec}
+\ltjsetparameter{jacharrange={-2,-3}}
+\setmainjfont{Noto Serif CJK JP}
+\newjfontfamily\jjp{Noto Serif CJK JP}
+\newjfontfamily\jsc{Noto Serif CJK SC}
+\RequirePackage{newcomputermodern}
+\RequirePackage{textalpha}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% ALLOWING FOR OTHER FONTS %%%%%%%%%%%%%%%%%%%%
+\RequirePackage{fontspec}
+\RequirePackage{accsupp}
+\newfontfamily\gothicfont{Ulfilas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% GRAPHICS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{graphicx}
+\RequirePackage{tikz}
+\usetikzlibrary{patterns, 3d, arrows, perspective,%
+  calc, bending, positioning}
+\usepgfmodule{nonlineartransformations}
+\RequirePackage{tikz-3dplot}
+\RequirePackage{pdfrender}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% REFERENCING %%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\disable@package@load{auxhook}{}
+\RequirePackage{hyperref}
+\hypersetup{%
+    colorlinks,%
+    linkcolor={black},%
+    citecolor={black},%
+    urlcolor={black}%
+}
+\RequirePackage[noabbrev]{cleveref}
+\numberwithin{equation}{section}
+%%%%%%%%%%%%%%%%%% REFERENCING SUB-EQUATIONS %%%%%%%%%%%%%%%%%%%
+\RequirePackage{xstring}
+\DeclareDocumentCommand{\subeqref}{m o}{%
+    \edef\c{\detokenize{#1}}%
+    \edef\lbracetoken{\string{}%
+    \edef\rbracetoken{\string}}%
+    \StrBetween{\c}{\lbracetoken}{\rbracetoken}[\temp]%
+    (\hyperref[\temp]{#1#2})%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{mathglyphs}
+

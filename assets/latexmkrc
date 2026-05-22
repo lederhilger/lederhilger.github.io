@@ -1,0 +1,22 @@
+use Cwd qw(abs_path);
+use File::Basename qw(dirname fileparse);
+my $main_root = abs_path(dirname(__FILE__));
+my $mk_root = $main_root;
+while ($mk_root ne dirname($mk_root) && !-d "$mk_root/_latexmk") {
+    $mk_root = dirname($mk_root);
+}
+die "Could not find mk root containing _latexmk\n"
+    unless -d "$mk_root/_latexmk";
+$ENV{'TEXINPUTS'} =
+    "$mk_root/_latexmk//:$main_root/sections//:$main_root/figures//:" . ($ENV{'TEXINPUTS'} // '');
+ensure_path('BIBINPUTS', "$mk_root/_latexmk//");
+
+$pdf_mode = 4;
+$postscript_mode = $dvi_mode = 0;
+$aux_dir = 'compile';
+if ($ENV{'RM_PDF'}) {
+    $success_cmd = 'pdf2svg %D %B.svg && rm -f %D';
+}
+else {
+    $success_cmd = 'pdf2svg %D %B.svg';
+}
