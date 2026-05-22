@@ -14,7 +14,7 @@ The `latexmkrc` finds the preamble on its own, and compiles correctly using `TeX
 It then converts the figure to svg using `pdf2svg`.
 The environment flag `RM_PDF` instructs `latexmk` to remove the PDF afterwards.
 Omit that assignment in the command if you want to keep the PDF.
-If you don't have `pdf2svg`, or simply don't want to convert to PDF, remove these lines from the `latexmkrc`:
+If you don't have `pdf2svg`, or simply don't want to convert the PDF, remove these lines from the `latexmkrc`:
 
 ```perl
 if ($ENV{'RM_PDF'}) {
