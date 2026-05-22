@@ -1,0 +1,29 @@
+\begin{tikzpicture}
+  \begin{scope}[scale = 5]
+    \coordinate (leading) at (.00038, -.00223) {};
+    \coordinate (trailing) at (1, 0);
+    \coordinate (1s) at (.73892, .04925);
+    \coordinate (1p) at (.75634, .00379);
+    \coordinate (2s) at (.598120, .06861);
+    \coordinate (2p) at (.60112, -.0019);
+    \coordinate (3s) at (.49967, .07816);
+    \coordinate (3p) at (.49176, -.00678);
+    \coordinate (4s) at (.35506, .085);
+    \coordinate (4p) at (.38364, -.01152);
+    \coordinate (5s) at (.26604, .08359);
+    \coordinate (5p) at (.2342, -.01699);
+    \coordinate (6s) at (.15146, .07182);
+    \coordinate (6p) at (.14974, -.01867);
+    \coordinate (7s) at (.045240, .04078);
+    \coordinate (7p) at (.05491, -.01635);
+    \draw (trailing)--(1s)--(2s)--(3s)--(4s)--(5s)--(6s)--(7s)--(leading)--(7p)--(6p)--(5p)--(4p)--(3p)--(2p)--(1p)--cycle;
+    \draw (1s)--(1p);
+    \draw (2s)--(2p);
+    \draw (3s)--(3p);
+    \draw (4s)--(4p);
+    \draw (5s)--(5p);
+    \draw (6s)--(6p);
+    \draw (7s)--(7p);
+    \draw[dashed] (leading)--($(7s)!.5!(7p)$)--($(6s)!.5!(6p)$)--($(5s)!.5!(5p)$)--($(4s)!.5!(4p)$)--($(3s)!.5!(3p)$)--($(2s)!.5!(2p)$)--($(1s)!.5!(1p)$)--(trailing);
+  \end{scope}
+\end{tikzpicture}

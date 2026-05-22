@@ -13,9 +13,11 @@ You see, for my bachelor's thesis, I was told to use the SD7032 profile as the e
 This airfoil is only found as a collection of sixty or so points that define a polygon that approximates it.<sup><a href="#ref-selig1989airfoils">1</a></sup>
 
 For my thesis, I was reading many of the papers of John <span class="smallcaps">Hess</span> and Apollo <span class="smallcaps">Smith</span>, a paper of the former suggesting what would inspire me to pursue this topic, even though it wasn't really relevant to its main research question.
-This paper of <span class="smallcaps">Hess</span>', and pretty much all his papers on the topic, pertained to the representation of the wing in full for the displacement solution, but with a very similar construction of bound vorticity on the mean camber line.<sup><a href="#ref-hess1974problem-2">2</a></sup>
+This paper of <span class="smallcaps">Hess</span>'s, and pretty much all his papers on the topic, pertained to the representation of the wing in full for the displacement solution, but with a very similar construction of bound vorticity on the mean camber line.<sup><a href="#ref-hess1974problem-2">2</a></sup>
 He suggests that an airfoil given as an equal distribution of points on the pressure and suction sides of the airfoil would yield pairwise vertices by which one could find a linear interpolation of the mean camber line through the midpoints of the lines connecting them, the leading and trailing edge vertices notwithstanding.
 Although I try to craft my writing such that one may understand what I'm talking about just by reading my text, I understand that it may be cumbersome, so here's a picture:
+
+<img class="entry-figure" src="{{ '/assets/entries/medial/hess_camber.svg' | relative_url }}" alt="Hess's suggestion for mean camber approximation">
 
 ### Notes
 
@@ -36,7 +38,7 @@ Although I try to craft my writing such that one may understand what I'm talking
 </p>
 
 <p id="li1982medial">
-   Decai <span class="smallcaps">Li</span> (李德財), <em>Medial Axis Transformation of a Planar Shape</em>, IEEE Transactions on Pattern Analysis and Machine Intelligence, PAMI-4 (1982)
+   Decai <span class="smallcaps">Li</span> (李德財), <em>Medial Axis Transformation of a Planar Shape</em>, IEEE Transactions on Pattern Analysis and Machine Intelligence, PAMI-4 (1982), pp.363–369
 </p>
 
 <p id="selig1989airfoils">
