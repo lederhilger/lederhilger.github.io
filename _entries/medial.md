@@ -1,9 +1,9 @@
 ---
-title: Medial axis
+title: The failure of the medial axis
 date: 2026-05-18
 ---
 
-# Medial axis
+# The failure of the medial axis
 
 The airfoils you find on the internet are often polygons, which I saw as an obstacle when I wrote my master's thesis on the the vortex lattice method, applied to wind turbines.
 For this method, you discretize the blades of the wind turbine into flat lifting surfaces, using the mean camber line as the basis for the resulting panels.
@@ -19,6 +19,16 @@ Although I try to craft my writing such that one may understand what I'm talking
 
 <img class="entry-figure" src="{{ '/assets/entries/medial/hess_camber.svg' | relative_url }}" alt="Hess's suggestion for mean camber approximation">
 
+This is obviously a very bad approximation of the mean camber line.
+My first thought was that this isn't very good for the sole reason that the SD7032 profile doesn't actually have an equal number of points on the suction side as on the pressure side.
+What I did to construct this figure was choosing a somewhat coherent collection of points on the suction side, and then try to match those points in abscissal value from among the pressure side points to the best of my ability.
+To address this issue, I though you could use a sort of first order approximation in the sense that you can draw a straight line from each vertex to the ordinately opposite side of the polygon, and construct the mean camber approximation in a similar manner to <span class="smallcaps">Hess</span>.
+My second thought was that this could obviously be done much better with splines, and so I went to speak with <a href="https://mn.uio.no/math/english/people/aca/michaelf/">Mike</a>, whom I reckoned to know a thing or two about such things.
+Drawing my polygonal airfoil on the blackboard in his office, he said something along the lines of "This sounds like the medial axis."
+And so, on this medial axis tangent I went on workdays during which I ought to have been preöccupied with implementing the fast multipole method to my vortex lattice solver.
+
+My search for literature swiftly brought me before the paper title <em>Medial Axis Transformation of a Planar Shape</em> by Der-Tsai <span class="smallcaps">Lee</span>.<sup><a href="">3</a></sup>
+
 ### Notes
 
 <ol class="notes">
@@ -28,6 +38,9 @@ Although I try to craft my writing such that one may understand what I'm talking
     </li>
     <li id="note-hess1974problem-2">
     	See figure 7a in <a href="#hess1974problem"><span class="smallcaps">Hess</span> (1974).</a>
+    </li>
+    <li id="note-li1982medial">
+	I prefer to transliterate names consistently using modern standards, so I have cited him based on the pinyin of the Chinese 李德財 (Décái Lǐ), whence <a href="#li1982medial"><span class="smallcaps">Li</span> (1982)</a>.
     </li>
 </ol>
 
