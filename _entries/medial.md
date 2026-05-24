@@ -27,7 +27,12 @@ My second thought was that this could obviously be done much better with splines
 Drawing my polygonal airfoil on the blackboard in his office, he said something along the lines of "This sounds like the medial axis."
 And so, on this medial axis tangent I went on workdays during which I ought to have been preöccupied with implementing the fast multipole method to my vortex lattice solver.
 
-My search for literature swiftly brought me before the paper title <em>Medial Axis Transformation of a Planar Shape</em> by Der-Tsai <span class="smallcaps">Lee</span>.<sup><a href="">3</a></sup>
+My search for literature swiftly brought me before the paper titled <em>Medial Axis Transformation of a Planar Shape</em> by Decai <span class="smallcaps">Li</span>,<sup><a href="">3</a></sup> and with it came my formal introduction to the <em><span class="smallcaps">Voronoj</span> diagram</em>, something I had heard of in passing before.
+It turns out the medial axis is a subset thereof, you just have to remove the edges that terminate at a reflex vertex.
+I won't recite <span class="smallcaps">Li</span>'s entire article here, but I will provide the broad strokes, and although I did implement his algorithm, I'll present a simpler, more digestible algorithm involving the <span class="smallcaps">Delone</span> triangulation for this blogpost.
+
+<canvas id="delone-canvas" width="460" height="500"></canvas>
+<script src="{{ '/assets/js/medial/delone.js' | relative_url }}"></script>
 
 ### Notes
 
@@ -40,14 +45,14 @@ My search for literature swiftly brought me before the paper title <em>Medial Ax
     	See figure 7a in <a href="#hess1974problem"><span class="smallcaps">Hess</span> (1974).</a>
     </li>
     <li id="note-li1982medial">
-	I prefer to transliterate names consistently using modern standards, so I have cited him based on the pinyin of the Chinese 李德財 (Décái Lǐ), whence <a href="#li1982medial"><span class="smallcaps">Li</span> (1982)</a>.
+	Although his name is often rendered Der-Tsai <span class="smallcaps">Lee</span>, I prefer to transliterate names consistently using modern standards, so I have cited him based on the pinyin of the Chinese 李德財, which is Décái Lǐ. Whence <a href="#li1982medial"><span class="smallcaps">Li</span> (1982)</a>.
     </li>
 </ol>
 
 ## Bibliography
 
 <p id="hess1974problem">
-   John L. Hess, <em>The Problem of Three-dimensional Lifting Potential Flow and its Solution by Means of Surface Singularity Distribution</em>, Computer Methods in Applied Mechanics and Engineering, 4 (1974), pp.283–319
+   John L. <span class="smallcaps">Hess</span>, <em>The Problem of Three-dimensional Lifting Potential Flow and its Solution by Means of Surface Singularity Distribution</em>, Computer Methods in Applied Mechanics and Engineering, 4 (1974), pp.283–319
 </p>
 
 <p id="li1982medial">
