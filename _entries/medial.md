@@ -29,10 +29,23 @@ And so, on this medial axis tangent I went on workdays during which I ought to h
 
 My search for literature swiftly brought me before the paper titled <em>Medial Axis Transformation of a Planar Shape</em> by Decai <span class="smallcaps">Li</span>,<sup><a href="">3</a></sup> and with it came my formal introduction to the <em><span class="smallcaps">Voronoj</span> diagram</em>, something I had heard of in passing before.
 It turns out the medial axis is a subset thereof, you just have to remove the edges that terminate at a reflex vertex.
-I won't recite <span class="smallcaps">Li</span>'s entire article here, but I will provide the broad strokes, and although I did implement his algorithm, I'll present a simpler, more digestible algorithm involving the <span class="smallcaps">Delone</span> triangulation for this blogpost.
+I won't recite <span class="smallcaps">Li</span>'s entire article here, but I will provide the broad strokes, and although I did implement his algorithm, I'll present a simpler, more digestible algorithm involving quadtree partitioning.
 
+<div id="delone-controls">
+     <label><input type="checkbox" data-layer="regions" checked>regions</label>
+     <label><input type="checkbox" data-layer="voronoj"><span class="smallcaps">Voronoj</span></label>
+     <label><input type="checkbox" data-layer="medial" checked>medial</label>
+     <label><input type="range" id="delone-spacing" min="2" max="12" value="3">spacing</label>
+     <button type="button" id="delone-reset">reset</button>
+</div>
 <canvas id="delone-canvas" width="460" height="500"></canvas>
-<script src="{{ '/assets/js/medial/delone.js' | relative_url }}"></script>
+<script type="module" src="{{ '/assets/js/medial/delone.js' | relative_url }}"></script>
+
+<div id="airfoil-controls">
+     <label><input type="range" id="airfoil-points" min="4" max="60" step="4" value="16">points</label>
+</div>
+<canvas id="airfoil-canvas" width="460" height="160"></canvas>
+<script type="module" src="{{ '/assets/js/medial/airfoil.js' | relative_url }}"></script>
 
 ### Notes
 
