@@ -24,6 +24,8 @@ This painting also coïncidentally shares its name with one of my favorite chora
      <img src="{{ '/assets/img/evening_peal.jpg' | relative_url }}" alt="Вечерний звон, Isaak Levitan">
      <div class="palette-row" aria-label="Website palette">
      	  <span style="--swatch: #f2ece4" title="#F2ECE4"></span>
+	  <span style="--swatch: #f2dcb3" title="#F2DCB3"></span>
+	  <span style="--swatch: #bfa380" title="#BFA380"></span>
       	  <span style="--swatch: #c8ad67" title="#C8AD67"></span>
 	  <span style="--swatch: #73551f" title="#73551F"></span>
 	  <span style="--swatch: #403521" title="#403521"></span>
