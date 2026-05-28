@@ -13,7 +13,7 @@ function componentNearPoint(component, point, radius) {
     );
 }
 
-function withered(component, reflexElement, points, spacing) {
+function withered(component, reflexElement, points, resolution) {
     const ids = new Set(component.elementIds);
     if (!ids.has(reflexElement.id)) {
 	return false;
@@ -25,16 +25,16 @@ function withered(component, reflexElement, points, spacing) {
     return componentNearPoint(
 	component,
 	points[reflexElement.vertexIndex],
-	spacing*3
+	resolution*3
     );
 }
 
-function medialAxis(components, elements, points, spacing) {
+function medialAxis(components, elements, points, resolution) {
     const reflexElements = elements.filter(element => element.kind === "reflex");
     const kept = [];
     const removed = [];
     for (const component of components) {
-	const shouldPrune = reflexElements.some(reflexElement => withered(component, reflexElement, points, spacing));
+	const shouldPrune = reflexElements.some(reflexElement => withered(component, reflexElement, points, resolution));
 	if (shouldPrune) {
 	    removed.push(component);
 	} else {

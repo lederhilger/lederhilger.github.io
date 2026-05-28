@@ -1,7 +1,7 @@
 import {ε, p2e, pinpoly} from "./geometry.js";
 import {elementMap, nearestElement} from "./elements.js";
 
-function sampleGrid(points, elements, spacing) {
+function sampleGrid(points, elements, resolution) {
     const xs = points.map(point => point.x);
     const ys = points.map(point => point.y);
     const minX = Math.min(...xs);
@@ -10,13 +10,13 @@ function sampleGrid(points, elements, spacing) {
     const maxY = Math.max(...ys);
     const originX = minX;
     const originY = minY;
-    const cols = Math.floor((maxX - minX)/spacing)+1;
-    const rows = Math.floor((maxY - minY)/spacing)+1;
+    const cols = Math.floor((maxX - minX)/resolution)+1;
+    const rows = Math.floor((maxY - minY)/resolution)+1;
     const samples = [];
     for (let row = 0; row < rows; row += 1) {
 	for (let col = 0; col < cols; col += 1) {
 	    const point = {
-		x: originX + col*spacing, y: originY + row*spacing
+		x: originX + col*resolution, y: originY + row*resolution
 	    };
 	    const relation = pinpoly(point, points);
 	    const inside = relation === "inside";
@@ -46,7 +46,7 @@ function sampleGrid(points, elements, spacing) {
     return {
 	originX:originX,
 	originY:originY,
-	spacing:spacing,
+	resolution:resolution,
 	cols:cols,
 	rows:rows,
 	samples:samples

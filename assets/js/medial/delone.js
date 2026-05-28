@@ -20,70 +20,79 @@ import {
     polygon,
     copypoly,
 } from "./shapes.js";
+
 const canvas = document.querySelector("#delone-canvas");
 const context = canvas.getContext("2d");
 
-function recompute(points, spacing) {
+const state = {
+    points:copypoly(polygon),
+    resolution:3,
+    geometry:null,
+    layers: {
+	regions:false,
+	voronoj:false,
+	medial:false
+    },
+    drag: {
+	activeIndex:null,
+	pointerId:null
+    }
+}
+
+function recompute(points, resolution) {
     const elements = buildBEs(points);
-    const grid = sampleGrid(points, elements, spacing);
+    const grid = sampleGrid(points, elements, resolution);
     const crossings = rawVoronojCrossings(grid, elements);
     const segments = rawVoronojSegments(grid, crossings);
     const components = traceVoroedges(segments);
-    const medial = medialAxis(components, elements, points, grid.spacing);
+    const medial = medialAxis(components, elements, points, grid.resolution);
     return {elements, grid, crossings, segments, components, medial};
 }
 
-function drawScene(context, points, geometry, layers) {
+function drawScene() {
     context.clearRect(0, 0, context.canvas.width, context.canvas.height);
-    if (layers.regions) {
-	drawReflex(context, geometry.grid, geometry.elements);
+    if (state.layers.regions) {
+	drawReflex(context, state.geometry.grid, state.geometry.elements);
     }
-    if (layers.voronoj) {
-	drawVoronoj(context, geometry.segments);
+    if (state.layers.voronoj) {
+	drawVoronoj(context, state.geometry.segments);
     }
-    if (layers.medial) {
-	drawVoronoj(context, componentSegments(geometry.medial.kept));
+    if (state.layers.medial) {
+	drawVoronoj(context, componentSegments(state.geometry.medial.kept));
     }
     context.strokeStyle = "#0D0D0B";
     context.fillStyle = "#0D0D0B";
-    drawPolygon(context, points);
-    drawVertices(context, points);
+    drawPolygon(context, state.points);
+    drawVertices(context, state.points);
 }
 
-const layers = {
-    regions:false,
-    voronoj:false,
-    medial:false
-};
+function recomputeRedraw() {
+    state.geometry = recompute(state.points, state.resolution);
+    drawScene();
+}
 
 document.querySelectorAll("#delone-controls input[data-layer]").forEach(input => {
     const layer = input.dataset.layer;
-    input.checked = layers[layer];
+    input.checked = state.layers[layer];
     input.addEventListener("change", () => {
-	layers[layer] = input.checked;
-	drawScene(context, points, geometry, layers);
+	state.layers[layer] = input.checked;
+	drawScene();
     });
 });
 
-let points = copypoly(polygon);
-
-let spacing = 3;
-let geometry = recompute(points, spacing);
-drawScene(context, points, geometry, layers);
-
-const spacingInput = document.querySelector("#delone-spacing");
-spacingInput.addEventListener("input", () => {
-    spacing = Number(spacingInput.value);
-    geometry = recompute(points, spacing);
-    drawScene(context, points, geometry, layers);
+const resolutionInput = document.querySelector("#delone-resolution");
+resolutionInput.addEventListener("input", () => {
+    state.resolution = Number(resolutionInput.value);
+    recomputeRedraw();
 });
 
 const resetButton = document.querySelector("#delone-reset");
 resetButton.addEventListener("click", () => {
-    points = copypoly(polygon);
-    geometry = recompute(points, spacing);
-    drawScene(context, points, geometry, layers);
+    state.points = copypoly(polygon);
+    recomputeRedraw();
 });
+
+recomputeRedraw();
 
 function nearestVertexIndex(points, point, radius) {
     let nearestIndex = null;
@@ -103,16 +112,14 @@ function canvasPointFromEvent(canvas, event) {
     return {x:event.clientX-rect.left, y:event.clientY-rect.top};
 }
 
-const drag = {activeIndex:null, pointerId:null};
-
 canvas.addEventListener("pointerdown", event => {
     const point = canvasPointFromEvent(canvas, event);
-    const index = nearestVertexIndex(points, point, 12);
+    const index = nearestVertexIndex(state.points, point, 12);
     if (index === null) {
 	return;
     }
-    drag.activeIndex = index;
-    drag.pointerId = event.pointerId;
+    state.drag.activeIndex = index;
+    state.drag.pointerId = event.pointerId;
     canvas.setPointerCapture(event.pointerId);
 });
 
@@ -124,22 +131,21 @@ function restrict(point, canvas) {
 }
 
 canvas.addEventListener("pointermove", event => {
-    if (drag.pointerId !== event.pointerId || drag.activeIndex === null) {
+    if (state.drag.pointerId !== event.pointerId || state.drag.activeIndex === null) {
 	return;
     }
     const point = restrict(canvasPointFromEvent(canvas, event), canvas);
-    const candidate = points.map(point => ({x:point.x, y:point.y}));
-    candidate[drag.activeIndex] = point;
+    const candidate = state.points.map(point => ({x:point.x, y:point.y}));
+    candidate[state.drag.activeIndex] = point;
     if (!simple(candidate)) {
 	return;
     }
-    points = candidate;
-    geometry = recompute(points, spacing);
-    drawScene(context, points, geometry, layers);
+    state.points = candidate;
+    recomputeRedraw();
 });
 
 function stopDragging(event) {
-    if (drag.pointerId !== event.pointerId) {
+    if (state.drag.pointerId !== event.pointerId) {
 	return;
     }
 
@@ -147,8 +153,8 @@ function stopDragging(event) {
 	canvas.releasePointerCapture(event.pointerId);
     }
     
-    drag.activeIndex = null;
-    drag.pointerId = null;
+    state.drag.activeIndex = null;
+    state.drag.pointerId = null;
 }
 
 canvas.addEventListener("pointerup", stopDragging);

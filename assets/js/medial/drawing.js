@@ -81,10 +81,10 @@ function drawReflex(context, grid, elements) {
 	}
 	context.fillStyle = coloroj(sample, elementID);
 	context.fillRect(
-	    sample.x - grid.spacing/2,
-	    sample.y - grid.spacing/2,
-	    grid.spacing,
-	    grid.spacing
+	    sample.x - grid.resolution/2,
+	    sample.y - grid.resolution/2,
+	    grid.resolution,
+	    grid.resolution
 	);
     }
 }

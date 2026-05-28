@@ -35,7 +35,7 @@ I won't recite <span class="smallcaps">Li</span>'s entire article here, but I wi
      <label><input type="checkbox" data-layer="regions">regions</label>
      <label><input type="checkbox" data-layer="voronoj"><span class="smallcaps">Voronoj</span></label>
      <label><input type="checkbox" data-layer="medial">medial</label>
-     <label><input type="range" id="delone-spacing" min="2" max="12" value="3">spacing</label>
+     <label><input type="range" id="delone-resolution" min="2" max="12" value="3">spacing</label>
      <button type="button" id="delone-reset">reset</button>
 </div>
 <canvas id="delone-canvas" width="460" height="500"></canvas>
