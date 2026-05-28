@@ -32,20 +32,21 @@ It turns out the medial axis is a subset thereof, you just have to remove the ed
 I won't recite <span class="smallcaps">Li</span>'s entire article here, but I will provide the broad strokes, and although I did implement his algorithm, I'll present a simpler, more digestible algorithm involving quadtree partitioning.
 
 <div id="delone-controls">
-     <label><input type="checkbox" data-layer="regions" checked>regions</label>
+     <label><input type="checkbox" data-layer="regions">regions</label>
      <label><input type="checkbox" data-layer="voronoj"><span class="smallcaps">Voronoj</span></label>
-     <label><input type="checkbox" data-layer="medial" checked>medial</label>
+     <label><input type="checkbox" data-layer="medial">medial</label>
      <label><input type="range" id="delone-spacing" min="2" max="12" value="3">spacing</label>
      <button type="button" id="delone-reset">reset</button>
 </div>
 <canvas id="delone-canvas" width="460" height="500"></canvas>
 <script type="module" src="{{ '/assets/js/medial/delone.js' | relative_url }}"></script>
 
+Airfoil example.
+<canvas id="airfoil-canvas" width="500" height="180"></canvas>
+<script type="module" src="{{ '/assets/js/medial/airfoil.js' | relative_url }}"></script>
 <div id="airfoil-controls">
      <label><input type="range" id="airfoil-points" min="4" max="60" step="4" value="16">points</label>
 </div>
-<canvas id="airfoil-canvas" width="460" height="160"></canvas>
-<script type="module" src="{{ '/assets/js/medial/airfoil.js' | relative_url }}"></script>
 
 ### Notes
 
