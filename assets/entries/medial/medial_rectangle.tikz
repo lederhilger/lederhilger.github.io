@@ -1,0 +1,23 @@
+\begin{tikzpicture}
+	\begin{scope}[scale = 4]
+		\def\width{1}
+		\pgfmathsetmacro\height{.5*(1+sqrt(5))}
+		\def\radius{.015}
+		\coordinate (A) at (0,0);
+		\coordinate (B) at (\width,0);
+		\coordinate (C) at (\width,\height);
+		\coordinate (D) at (0,\height);
+		\coordinate (E) at (.5,.5);
+		\coordinate (F) at (.5,{\height-.5});
+		\draw[dashed] (E)--(A);
+		\draw[dashed] (E)--(B);
+		\draw[dashed] (E)--(F);
+		\draw[dashed] (F)--(C);
+		\draw[dashed] (F)--(D);
+		\draw[thick] (A)--(B)--(C)--(D)--cycle;
+		\draw[fill = black] (A) circle (\radius);
+		\draw[fill = black] (B) circle (\radius);
+		\draw[fill = black] (C) circle (\radius);
+		\draw[fill = black] (D) circle (\radius);
+	\end{scope}
+\end{tikzpicture}

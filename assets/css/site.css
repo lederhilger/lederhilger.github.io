@@ -199,3 +199,15 @@ a {
     height: auto;
     margin: 1.5rem auto;
 }
+
+.entry-doublefig {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.entry-doublefig img {
+    width: 50%;
+    min-width: 0;
+    height: auto;
+}
