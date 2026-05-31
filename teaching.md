@@ -16,7 +16,7 @@ Upcoming lecture notes for the course MEK4410 -- *Offshore wind and aerodynamics
 ## Reell rett fram
 
 Translated from Norwegian to English as *Real [Analysis] Straightforwardly*, this was a series of supplementary lectures I organized as chair of the student council for the course MAT2400 -- *Real analysis* at the University of Oslo during the spring semester of 2025.
-This course is notoriously difficult, consistently yielding one of the highest reates of failure at the Department of Mathematics.
+This course is notoriously difficult, consistently yielding one of the highest rates of failure at the Department of Mathematics.
 I contacted previous lecturers of the course, who graciously accepted to lecture one topic each, in a straightforward manner.
 The lectures were as follows:
 - <a href="https://mn.uio.no/math/personer/vit/lindstro/">Tom <span class="smallcaps">Lindstrøm</span></a>: <a href="https://mn.uio.no/math/livet-rundt-studiene/studentdemokrati/matematisk-fagutvalg/arrangementer/metriskeromtom.pdf"><em>Metric spaces</em></a>
