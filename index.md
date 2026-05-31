@@ -15,8 +15,8 @@ I've always had an interest in languages, now being an armchair linguist, with p
 - Vortex lattice methods
 - Boundary layer theory
 
-The color palette of this website is based on Isaak Levitan's *Вечерний звон*, one of my all time favorite paintings.
-Its sister painting *Тихая обитель* is also a serenely captivating.
+The color palette of this website is based on Isaak Levitan's *Вечерний звон*, one of my alltime favorite paintings.
+Its sister painting *Тихая обитель* is also serenely captivating.
 *Evening peal* is reminiscent of my prospect overlooking Vestre Aker parish from the half decade at my desk in Niels Henrik Abels hus at the University of Oslo, though I must admit my view was better.
 This painting also coïncidentally shares its name with one of my favorite choral pieces.
 

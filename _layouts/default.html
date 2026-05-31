@@ -48,12 +48,14 @@
 	    {% endfor %}
 	  </ul>  
 	{% endif %}
-	
+	{% assign current_section = page.url | remove_first: "/" | split: "/" | first %}
 	<nav aria-label="Primary navigation">
 	  <ul>
-	    <li><a href="{{ '/cv/' | relative_url }}">CV</a></li>
-	    <li><a href="{{ '/weblog/' | relative_url }}">WEBLOG</a></li>
-	    <li><a href="{{ '/teaching/' | relative_url }}">TEACHING</a></li>
+	    <li>
+	      <a href="{{ '/cv/' | relative_url }}" class="{% if current_section == 'cv' %}is-active{% endif %}">CV</a>
+	    </li>
+	    <li><a href="{{ '/weblog/' | relative_url }}" class="{% if current_section == 'weblog' %}is-active{% endif %}">WEBLOG</a></li>
+	    <li><a href="{{ '/teaching/' | relative_url }}" class="{% if current_section == 'teaching' %}is-active{% endif %}">TEACHING</a></li>
 	  </ul>
 	</nav>
       </header>

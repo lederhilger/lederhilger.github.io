@@ -89,6 +89,10 @@ nav a:focus {
     color: #f2ece4;
     background: #403521;
 }
+nav a.is-active {
+    color: #f2ece4;
+    background: #403521;
+}
 
 a {
   color: #73551f

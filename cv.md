@@ -25,8 +25,8 @@ permalink: /cv/
 
 ## Projects
 
-- **Spring 2025** <code>&#124;</code> Response of Wind Trubines on Waves
-  - Study of marine hydridynamics, and the interaction between floating wind turbines and different wave scenarios.
+- **Spring 2025** <code>&#124;</code> Response of Wind Turbines on Waves
+  - Study of marine hydrodynamics, and the interaction between floating wind turbines and different wave scenarios.
   There is a [GitHub repo](https://github.com/lederhilger/MEK4420), along with lecture notes.
 
 - **Fall 2024** <code>&#124;</code> Wind-driven Waves  
@@ -42,7 +42,7 @@ permalink: /cv/
   - Employment of doctoral and postdoctoral researchers at the Department
   - **Committee** leader <code>&#124;</code> [Mikael Mortensen](https://mn.uio.no/math/english/people/aca/mikaem/)
 - **2025--2026** <code>&#124;</code> Student representative in the Employment committee, [*Faculty of Mathematics and Natural Sciences*](https://mn.uio.no/om/organisasjon/utvalg/ansettelsesutvalg/)
-  - Employment of associate professors, professors, researchers, and other scitentific staff at the Faculty
+  - Employment of associate professors, professors, researchers, and other scientific staff at the Faculty
   - **Committee leader** <code>&#124;</code> Dean [Solveig Kristensen](https://mn.uio.no/personer/adm/fak/ledelsen/solveigk/index.html)
 - **2024--2025** <code>&#124;</code> Chair of Matematisk fagutvalg, [*Department of Mathematics*](https://mn.uio.no/math/livet-rundt-studiene/studentdemokrati/matematisk-fagutvalg/)
   - Department board, Studies committee, Local work environment committee, Bachelor council, Master council
