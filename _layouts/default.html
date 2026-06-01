@@ -1,83 +1,22 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>{{ page.title | default: site.title }}</title>
-    <link rel="stylesheet" href="{{ '/assets/css/cmu.css' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
-    <script>
-      window.MathJax = {
-	  tex: {
-	      inlineMath: [['$', '$']],
-	      displayMath: [['\\[', '\\]']]
-	  },
-	  svg: {
-	      fontCache: 'global'
-	  }
-      }
-    </script>
-    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"></script>
+    {% include head.html %}
   </head>
   <body>
     <div class="wrapper">
       <header>
-	<h1>
-	  <a href="{{ '/' | relative_url }}">
-	    <span id="site-title">{{ site.title }}</span>
-	  </a>
-	</h1>
-
-	{% if site.logo %}
-	  <img class="portrait" src="{{ site.logo | relative_url }}" alt="Profile of Simon">
-	{% endif %}
-
-        <p>{{ site.description }}</p>
-
-	{% if site.email %}
-	  <p class="contact">
-	    Email: <a href="mailto:{{ site.email }}">{{ site.email }}</a>
-	  </p>
-	{% endif %}
-
-	{% if site.profile_links %}
-	  <ul class="profile-links">
-	    {% for link in site.profile_links %}
-	      <li>
-	        <a href="{{ link.url }}" aria-label="{{ link.label }}" title="{{ link.label }}">
-		  <img src="{{ link.icon | relative_url }}" alt="" class="profile-icon">
-		</a>
-              </li>
-	    {% endfor %}
-	  </ul>  
-	{% endif %}
-	{% assign current_section = page.url | remove_first: "/" | split: "/" | first %}
-	<nav aria-label="Primary navigation">
-	  <ul>
-	    <li>
-	      <a href="{{ '/cv/' | relative_url }}" class="{% if current_section == 'cv' %}is-active{% endif %}">CV</a>
-	    </li>
-	    <li><a href="{{ '/weblog/' | relative_url }}" class="{% if current_section == 'weblog' %}is-active{% endif %}">WEBLOG</a></li>
-	    <li><a href="{{ '/teaching/' | relative_url }}" class="{% if current_section == 'teaching' %}is-active{% endif %}">TEACHING</a></li>
-	  </ul>
-	</nav>
+	{% include header.html %}
       </header>
 
       <section>
 	{{ content }}
       </section>
     </div>
+    <script src="{{ '/assets/js/dark.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/swatches.js' | relative_url }}"></script>
     {% if page.collection == 'entries' %}
-    <script>
-      const nomens = [
-	  "Σιμων Ανδρειδης",
-	  "𐍃𐌴𐌹𐌼𐍉𐌽 𐍆𐌹𐌻𐌻𐌴𐌹𐌽𐌰𐌷𐌹𐌻𐌳𐌹𐌲𐌰𐌹𐍃",
-	  "莱德希尔格西蒙",
-	  "Симонъ Андрѣевичъ",
-	  "시몬 레더힐거"
-      ];
-      const nomen = nomens[Math.floor(Math.random()*nomens.length)];
-      document.getElementById("site-title").textContent = nomen;
-    </script>
+    <script src="{{ '/assets/js/nomens.js' | relative_url }}"></script>
     {% endif %}
   </body>
 </html>  

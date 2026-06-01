@@ -1,0 +1,22 @@
+<meta charset="utf-8">
+<title>{{ page.title | default: site.title }}</title>
+<script>
+  if (localStorage.getItem("theme") === "dark") {
+      document.documentElement.dataset.theme = "dark";
+  }
+</script>
+<link rel="stylesheet" href="{{ '/assets/css/cmu.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/colors.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+<script>
+  window.MathJax = {
+      tex: {
+	  inlineMath: [['$', '$']],
+	  displayMath: [['\\[', '\\]']]
+      },
+      svg: {
+	  fontCache: 'global'
+      }
+  }
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"></script>
