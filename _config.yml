@@ -9,12 +9,15 @@ profile_links:
   - label: GitHub
     url: https://github.com/lederhilger
     icon: /assets/img/icons/invertocat.svg
+    dark_icon: /assets/img/icons/dark_invertocat.svg
   - label: GitLab
     url: https://gitlab.com/lederhilger
     icon: /assets/img/icons/gitlab.svg
+    dark_icon: /assets/img/icons/dark_gitlab.svg
   - label: LinkedIn
     url: https://linkedin.com/in/simonled
     icon: /assets/img/icons/in.svg
+    dark_icon: /assets/img/icons/dark_in.svg
 
 theme: jekyll-theme-minimal
 

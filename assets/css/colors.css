@@ -1,0 +1,23 @@
+:root {
+    --background: #f2ece4;
+    --text: #0d0d0b;
+    --anchor: #73551f;
+    --button: #735236;
+    --active-button: #403521;
+    --button-text: #f2ece4;
+    --accent-1: #bfa380;
+    --accent-2: #f2dcb3;
+    --accent-3: #c8ad67;
+}
+
+html[data-theme="dark"] {
+    --background: #261a0f;
+    --text: #ffd472;
+    --anchor: #bf8d50;
+    --button: #403736;
+    --active-button: #595047;
+    --button-text: #8c6f4a;
+    --accent-1: #3b2a18;
+    --accent-2: #736049;
+    --accent-3: #d99d55;
+}
