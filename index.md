@@ -15,21 +15,40 @@ I've always had an interest in languages, now being an armchair linguist, with p
 - Vortex lattice methods
 - Boundary layer theory
 
+<div class="light-only" markdown="1">
 The color palette of this website is based on Isaak Levitan's *Вечерний звон*, one of my alltime favorite paintings.
 Its sister painting *Тихая обитель* is also serenely captivating.
 *Evening peal* is reminiscent of my prospect overlooking Vestre Aker parish from the half decade at my desk in Niels Henrik Abels hus at the University of Oslo, though I must admit my view was better.
 This painting also coïncidentally shares its name with one of my favorite choral pieces.
-
 <div class="palette-painting">
      <img src="{{ '/assets/img/evening_peal.jpg' | relative_url }}" alt="Вечерний звон, Isaak Levitan">
      <div class="palette-row" aria-label="Website palette">
-     	  <span style="--swatch: #f2ece4" title="#F2ECE4"></span>
-	  <span style="--swatch: #f2dcb3" title="#F2DCB3"></span>
-	  <span style="--swatch: #bfa380" title="#BFA380"></span>
-      	  <span style="--swatch: #c8ad67" title="#C8AD67"></span>
-	  <span style="--swatch: #73551f" title="#73551F"></span>
-	  <span style="--swatch: #403521" title="#403521"></span>
-	  <span style="--swatch: #735236" title="#735236"></span>
-	  <span style="--swatch: #0d0d0b" title="#0D0D0B"></span>
-      </div>
+     <span style="--swatch: var(--background)"></span>
+     <span style="--swatch: var(--accent-2)"></span>
+     <span style="--swatch: var(--accent-1)"></span>
+     <span style="--swatch: var(--accent-3)"></span>
+     <span style="--swatch: var(--anchor)"></span>
+     <span style="--swatch: var(--active-button)"></span>
+     <span style="--swatch: var(--button)"></span>
+     <span style="--swatch: var(--text)"></span>
+     </div>
+</div>
+</div>
+
+<div class="dark-only" markdown="1">
+The color palette of this website is based on Arhip Kuindži's *Исаакиевский собор при луне*.
+<div class="palette-painting">
+     <img src="{{ '/assets/img/isaacs_cathedral.jpg' | relative_url }}" alt="St. Isaac's Cathedral under Moonlight">
+     <div class="palette-row" aria-label="Website palette">
+	  <span style="--swatch: var(--text)"></span>
+	  <span style="--swatch: var(--accent-3)"></span>
+	  <span style="--swatch: var(--anchor)"></span>
+	  <span style="--swatch: var(--button-text)"></span>
+	  <span style="--swatch: var(--accent-2)"></span>
+	  <span style="--swatch: var(--active-button)"></span>
+	  <span style="--swatch: var(--button)"></span>
+	  <span style="--swatch: var(--accent-1)"></span>
+	  <span style="--swatch: var(--background)"></span>
+     </div>
+</div>
 </div>

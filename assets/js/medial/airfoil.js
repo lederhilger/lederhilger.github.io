@@ -1,4 +1,4 @@
-import {drawPolygon, drawVertices, drawVoronoj} from "./drawing.js";
+import {drawPolygon, drawVertices, drawVoronoj, siteColor} from "./drawing.js";
 import {sd7032, airfoil,airfoilSubset} from "./shapes.js";
 import {buildBEs} from "./elements.js";
 import {
@@ -32,8 +32,9 @@ function drawAirfoil() {
     const medial = medialAxis(components, elements, points, grid.resolution);
 
     context.clearRect(0, 0, canvas.width, canvas.height);
-    context.strokeStyle = "#0D0D0B";
-    context.fillStyle = "#0D0D0B";
+    const ink = siteColor("--text", "0D0D0B");
+    context.strokeStyle = ink;
+    context.fillStyle = ink;
 
     drawVoronoj(context, componentSegments(medial.kept));
     drawPolygon(context, points);
@@ -41,4 +42,5 @@ function drawAirfoil() {
 }
 
 drawAirfoil();
+window.addEventListener("themechange", drawAirfoil);
 pointInput.addEventListener("input", drawAirfoil);

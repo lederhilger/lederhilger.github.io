@@ -14,7 +14,8 @@ import {
     drawPolygon,
     drawVertices,
     drawVoronoj,
-    drawReflex
+    drawReflex,
+    siteColor
 } from "./drawing.js";
 import {
     polygon,
@@ -60,8 +61,9 @@ function drawScene() {
     if (state.layers.medial) {
 	drawVoronoj(context, componentSegments(state.geometry.medial.kept));
     }
-    context.strokeStyle = "#0D0D0B";
-    context.fillStyle = "#0D0D0B";
+    const ink = siteColor("--text", "0D0D0B");
+    context.strokeStyle = ink;
+    context.fillStyle = ink;
     drawPolygon(context, state.points);
     drawVertices(context, state.points);
 }
@@ -93,6 +95,7 @@ resetButton.addEventListener("click", () => {
 });
 
 recomputeRedraw();
+window.addEventListener("themechange", drawScene);
 
 function nearestVertexIndex(points, point, radius) {
     let nearestIndex = null;

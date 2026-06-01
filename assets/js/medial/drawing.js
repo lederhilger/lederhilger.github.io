@@ -1,6 +1,10 @@
 import {normalize, pinpoly, subtract} from "./geometry.js";
 import {elementMap} from "./elements.js";
 
+function siteColor(name, fallback) {
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim() || fallback;
+}
+
 function drawPolygon(context, points) {
     context.lineWidth = 2;
     context.beginPath();
@@ -53,7 +57,7 @@ function drawVertices(context, points, options = {}){
 }
 
 function drawVoronoj(context, segments) {
-    context.strokeStyle = "#0D0D0B";
+    context.strokeStyle = siteColor("--text", "#0D0D0B");
     context.lineWidth = 1;
     for (const segment of segments) {
 	context.beginPath();
@@ -67,10 +71,10 @@ function coloroj(sample, elementID) {
     for (const id of sample.malcolmIDs) {
 	const element = elementID.get(id);
 	if (element?.kind === "reflex") {
-	    return "#F2DCB3";
+	    return siteColor("--accent-2", "#F2DCB3");
 	}
     }
-    return "#BFA380";
+    return siteColor("--accent-1", "#BFA380");
 }
 
 function drawReflex(context, grid, elements) {
@@ -93,5 +97,6 @@ export {
     drawPolygon,
     drawVertices,
     drawVoronoj,
-    drawReflex
+    drawReflex,
+    siteColor
 };

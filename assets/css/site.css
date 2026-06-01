@@ -1,8 +1,8 @@
 body {
     margin: 0;
     padding: 50px;
-    color: #0d0d0b;
-    background: #f2ece4;
+    color: var(--text);
+    background: var(--background);
 }
 
 .wrapper {
@@ -79,23 +79,23 @@ nav a {
     padding: 8px 12px;
     text-align: center;
     text-decoration: none;
-    color: #f2ece4;
-    background: #735236;
+    color: var(--button-text);
+    background: var(--button);
     border-radius: 8px
 }
 
 nav a:hover,
 nav a:focus {
-    color: #f2ece4;
-    background: #403521;
+    color: var(--button-text);
+    background: var(--active-button);
 }
 nav a.is-active {
-    color: #f2ece4;
-    background: #403521;
+    color: var(--button-text);
+    background: var(--active-button);
 }
 
 a {
-  color: #73551f
+    color: var(--anchor);
 }
 
 @media screen and (max-width: 960px) {
@@ -114,7 +114,6 @@ a {
     }
 
     section {
-	border-top: 1px solid rgba(13, 13, 11, 0.18);
 	margin-top: 25px;
 	padding-top: 25px;
     }
@@ -166,6 +165,18 @@ a {
     display: block;
 }
 
+.profile-icon-dark {
+    display: none;
+}
+
+html[data-theme="dark"] .profile-icon-light {
+    display:none;
+}
+
+html[data-theme="dark"] .profile-icon-dark {
+    display:block;
+}
+
 .palette-painting {
     position: relative;
     margin: 2rem 0;
@@ -210,4 +221,34 @@ a {
     width: 50%;
     min-width: 0;
     height: auto;
+}
+
+.vesper {
+    display:block;
+    width: 100%;
+    margin: 0 0 20px;
+    padding: 8px 12px;
+    color: var(--button-text);
+    background: var(--button);
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font: inherit;
+}
+
+.vesper:hover,
+.vesper:focus {
+    background: var(--active-button);
+}
+
+.dark-only {
+    display: none;
+}
+
+html[data-theme="dark"] .light-only {
+    display: none;
+}
+
+html[data-theme="dark"] .dark-only {
+    display: block;
 }
