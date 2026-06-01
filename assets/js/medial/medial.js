@@ -21,7 +21,7 @@ import {
     copypoly,
 } from "./shapes.js";
 
-const canvas = document.querySelector("#delone-canvas");
+const canvas = document.querySelector("#medial-canvas");
 const context = canvas.getContext("2d");
 
 const state = {
@@ -71,7 +71,7 @@ function recomputeRedraw() {
     drawScene();
 }
 
-document.querySelectorAll("#delone-controls input[data-layer]").forEach(input => {
+document.querySelectorAll("#medial-controls input[data-layer]").forEach(input => {
     const layer = input.dataset.layer;
     input.checked = state.layers[layer];
     input.addEventListener("change", () => {
@@ -80,13 +80,13 @@ document.querySelectorAll("#delone-controls input[data-layer]").forEach(input =>
     });
 });
 
-const resolutionInput = document.querySelector("#delone-resolution");
+const resolutionInput = document.querySelector("#medial-resolution");
 resolutionInput.addEventListener("input", () => {
     state.resolution = Number(resolutionInput.value);
     recomputeRedraw();
 });
 
-const resetButton = document.querySelector("#delone-reset");
+const resetButton = document.querySelector("#medial-reset");
 resetButton.addEventListener("click", () => {
     state.points = copypoly(polygon);
     recomputeRedraw();

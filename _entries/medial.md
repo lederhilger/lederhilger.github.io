@@ -47,15 +47,15 @@ Difference between my implementations:
      <img src="{{ '/assets/entries/medial/medial_rectangle.svg' | relative_url }}" alt="Medial axis of rectangle">
 </div>
 
-<div id="delone-controls">
+<div id="medial-controls">
      <label><input type="checkbox" data-layer="regions">regions</label>
      <label><input type="checkbox" data-layer="voronoj"><span class="smallcaps">Voronoj</span></label>
      <label><input type="checkbox" data-layer="medial">medial</label>
-     <label><input type="range" id="delone-resolution" min="2" max="12" value="3">spacing</label>
-     <button type="button" id="delone-reset">reset</button>
+     <label><input type="range" id="medial-resolution" min="2" max="12" value="3">spacing</label>
+     <button type="button" id="medial-reset">reset</button>
 </div>
-<canvas id="delone-canvas" width="460" height="500"></canvas>
-<script type="module" src="{{ '/assets/js/medial/delone.js' | relative_url }}"></script>
+<canvas id="medial-canvas" width="460" height="500"></canvas>
+<script type="module" src="{{ '/assets/js/medial/medial.js' | relative_url }}"></script>
 
 ### Notes
 
