@@ -31,7 +31,7 @@ My search for literature swiftly brought me before the paper titled <em>Medial A
 It turns out the medial axis is a subset thereof, you just have to remove the edges that terminate at a reflex vertex.
 I won't recite <span class="smallcaps">Li</span>'s entire article here, but I will provide the broad strokes, though I'll present a simpler, more digestible algorithm involving quadtree partitioning for you.
 Truth be told, I did get the implementation wrong the first time around in my master's thesis, which did end up in the appendix of the final draft.
-I'll discuss exactly why my implementation was wrong later, but first a taste of the correct implementation.
+I'll discuss exactly why my implementation was wrong, but first a taste of the correct implementation.
 Here is the medial axis of the SD7032 sampled at four point increments, approximately evenly distributed for the pressure and suction sides:
 <canvas id="airfoil-canvas" width="500" height="180"></canvas>
 <script type="module" src="{{ '/assets/js/medial/airfoil.js' | relative_url }}"></script>
@@ -41,11 +41,38 @@ Here is the medial axis of the SD7032 sampled at four point increments, approxim
 Dragging the slider will increase the number of sampled points by four.
 Try it out!
 
-Difference between my implementations:
+Consider a set of ordered points $G = \\{ p_0, \dots, p_{n-1} \\}$, serving as the vertices of our simple $n$-sided polygon (simple here refers to nonintersecting).
+The edges of the polygon we label $e_i$.
+You can now either construct the <span class="smallcaps">Voronoj</span> diagram with respect to the vertices or the edges, the former of which I erroneously chose to implement for my thesis.
+Either way, the <span class="smallcaps">Voronoj</span> diagram of a collection of elements, be they points or edges, is the curve which is at each point equally distant from two or more elements.
+Clearly, a <span class="smallcaps">Voronoj</span> diagram with respect to the vertices will terminate in the middle of the edges, whilst a <span class="smallcaps">Voronoj</span> diagram of the edges will terminate at the vertices.
+This is very evident when you consider a rectangle:
+
 <div class="entry-doublefig">
      <img src="{{ '/assets/entries/medial/delone_rectangle.svg' | relative_url }}" alt="Voronoj diagram of rectangle vertices">
      <img src="{{ '/assets/entries/medial/medial_rectangle.svg' | relative_url }}" alt="Medial axis of rectangle">
 </div>
+
+The dashed lines in the left rectangle is the <span class="smallcaps">Voronoj</span> diagram with respect to the vertices, whilst the dashed lines in the right triangle is the <span class="smallcaps">Voronoj</span> diagram with respect to the edges.
+As you can probably gather, what I did for my thesis was indeed to make the <span class="smallcaps">Voronoj</span> diagram with respect to the vertices.
+How I managed to do this is quite simple: I had read that the <span class="smallcaps">Voronoj</span> diagram was the dual to the <span class="smallcaps">Delone</span> triangulation, so I just triangulated the airfoil, and found the dualby connecting the triangle circumcenters.
+Since edges of the triangles will sometimes coïncide with the edges of the polygon, the full <span class="smallcaps">Voronoj</span> diagram of the polygon would of course have lines terminating at the edges.
+But I specifically wanted the airfoil mean camber line, so I paid little attention to where the lines off the mean camber line terminated.
+Here is the resulting full diagram of the SD7032 airfoil:
+
+<img class="entry-figure" src="{{ '/assets/entries/medial/sd7032_voronoj.svg' | relative_url }}" alt="Point Voronoj os SD7032">
+
+This was a complete failure, though I hadn't realized exactly why.
+I just thought that the medial axis worked as a poor approximation to the mean camber line for airfoils.
+We now understand that I'd just got lost in the interesting new fun facts and interesting pieces of mathematics around the <span class="smallcaps">Voronoj</span> diagram.
+In immersing myself in the <span class="smallcaps">Delone</span> triangulation, I had completely neglected the original insight I had gained from <span class="smallcaps">Li</span>, and it would not be until I reread his article preparing to write this very entry to my weblog that I relaized where I'd gone wrong.
+
+<span class="smallcaps">Li</span> states that for a polygon with $n$ sides, and $m$ reflex vertices, the interior of the polygon will be divided into $n + m$ <span class="smallcaps">Voronoj</span> polygons, whose union is the <span class="smallcaps">Voronoj</span> diagram.
+I think this is best explained by illustration.
+I've recreated <span class="smallcaps">Li</span>'s figure 3 below.
+Checking the <b>regions</b> button will show the <span class="smallcaps">Voronoj</span> polygons of the polygon edges in a darker color, and the <span class="smallcaps">Voronoj</span> polygons of the reflex vertices in a lighter color.
+Checking the <b><span class="smallcaps">Voronoj</span></b> button will draw the <span class="smallcaps">Voronoj</span> edges.
+The <b>medial</b> button just removes the <span class="smallcaps">Voronoj</span> edges terminating at a reflex vertex, which is what <span class="smallcaps">Li</span> defines as the medial axis of the polygon.
 
 <div id="medial-controls">
      <label><input type="checkbox" data-layer="regions">regions</label>
@@ -56,6 +83,8 @@ Difference between my implementations:
 </div>
 <canvas id="medial-canvas" width="460" height="500"></canvas>
 <script type="module" src="{{ '/assets/js/medial/medial.js' | relative_url }}"></script>
+
+I've made the polygon interactive, so you're free to click and drag the vertices around.
 
 ### Notes
 
