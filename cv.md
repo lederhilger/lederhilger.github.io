@@ -14,6 +14,8 @@ permalink: /cv/
 
 ## Education
 
+- **2026--2027** <code>&#124;</code> Research Master, Environmental and Applied Fluid Dynamics, [von Kármán Institute for Fluid Dynamics](https://www.vki.ac.be/)
+
 - **2024--2026** <code>&#124;</code> Master of Science, Fluid Mechanics, [*University of Oslo*](https://mn.uio.no/math/)  
   - **Thesis** <code>&#124;</code> On Accelerating Inviscid Vortical Calculations  
   - **Supervisors** <code>&#124;</code> [Tor Anders Nygaard](https://www.mn.uio.no/math/english/people/aca/torany/) & [Karsten Trulsen](https://www.mn.uio.no/math/personer/vit/karstent/)
