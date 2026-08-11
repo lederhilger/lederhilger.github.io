@@ -1,5 +1,14 @@
-import {drawPolygon, drawVertices, drawVoronoj, siteColor} from "./drawing.js";
-import {sd7032, airfoil,airfoilSubset} from "./shapes.js";
+import {
+    drawPolygon,
+    drawVertices,
+    drawVoronoj,
+    siteColor
+} from "./drawing.js";
+import {
+    sd7032,
+    airfoil,
+    airfoilSubset
+} from "./shapes.js";
 import {buildBEs} from "./elements.js";
 import {
     sampleGrid,

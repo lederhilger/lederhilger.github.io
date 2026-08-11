@@ -92,12 +92,15 @@ function airfoil(points, chord=380, xOffset=40, yOffset=80) {
 }
 
 function sampleList(points, count) {
+    if (count <= 0) {
+	return [];
+    }
     if (count >= points.length) {
 	return copypoly(points);
     }
     const selected = [];
     for (let i = 0; i < count; i += 1) {
-  	const index = Math.round(i*(points.length - 1)/(count - 1));
+  	const index = Math.round((i+1)*(points.length - 1)/(count + 1));
 	selected.push({x:points[index].x, y:points[index].y});
     }
     return selected;
