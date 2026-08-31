@@ -18,5 +18,8 @@
     {% if page.collection == 'entries' %}
     <script src="{{ '/assets/js/nomens.js' | relative_url }}"></script>
     {% endif %}
+    {% if page.load_chrono %}
+    <script src="{{ '/assets/js/chrono.js' | relative_url }}"></script>
+    {% endif %}
   </body>
 </html>  
