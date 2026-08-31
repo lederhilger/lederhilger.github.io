@@ -25,6 +25,8 @@ collections:
   entries:
     output: true
     permalink: /weblog/:name/
+  projects:
+    output: true
 
 defaults:
   - scope:
@@ -37,3 +39,15 @@ defaults:
       type: entries
     values:
       layout: default
+
+  - scope:
+      path: "_projects/academic"
+      type: projects
+    values:
+      project_kind: academic
+
+  - scope:
+      path: "_projects/personal"
+      type: projects
+    values:
+      project_kind: personal
