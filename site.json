@@ -1,0 +1,62 @@
+{
+    "title": "Simon Lederhilger",
+    "description": "My academic and personal webpage",
+    "pages": [
+	{
+	    "title": "Home",
+	    "source": "index.html",
+	    "output": "index.html",
+	    "layout": "default",
+	    "section": ""
+	},
+	{
+	    "title": "CV",
+	    "source": "cv/index.html",
+	    "output": "cv/index.html",
+	    "layout": "default",
+	    "section": "cv"
+	},
+	{
+	    "title": "Teaching",
+	    "source": "teaching/index.html",
+	    "output": "teaching/index.html",
+	    "layout": "default",
+	    "section": "teaching"
+	},
+	{
+	    "title": "Projects",
+	    "source": "projects/index.html",
+	    "output": "projects/index.html",
+	    "layout": "project",
+	    "section": "projects"
+	},
+	{
+	    "title": "altshiftkeys",
+	    "source": "projects/altshiftkeys/index.html",
+	    "output": "projects/altshiftkeys/index.html",
+	    "layout": "project",
+	    "section": "projects"
+	},
+	{
+	    "title": "dlangfmm",
+	    "source": "projects/dlangfmm/index.html",
+	    "output": "projects/dlangfmm/index.html",
+	    "layout": "project",
+	    "section": "projects"
+	},
+	{
+	    "title": "Weblog",
+	    "source": "weblog/index.html",
+	    "output": "weblog/index.html",
+	    "layout": "default",
+	    "section": "weblog"
+	},
+	{
+	    "title": "The failure of the medial axis",
+	    "source": "weblog/medial/index.html",
+	    "output": "weblog/medial/index.html",
+	    "layout": "default",
+	    "section": "weblog"
+	}
+    ]
+}

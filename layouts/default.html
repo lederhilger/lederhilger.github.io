@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>$hyde{title}</title>
+    <script>
+      if (localStorage.getItem("theme") === "dark") {
+	  document.documentElement.dataset.theme = "dark";
+      }
+    </script>
+    <link rel="stylesheet" href="/assets/css/cmu.css">
+    <link rel="stylesheet" href="/assets/css/colors.css">
+    <link rel="stylesheet" href="/assets/css/site.css">
+    <script>
+      window.MathJax = {
+	  tex: {
+	      inlineMath: [['$', '$']],
+	      displayMath: [['\\[', '\\]']]
+	  },
+	  svg: {
+	      fontCache: 'global'
+	  }
+      }
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+	<h1>
+	  <a href="/">
+	    <span id="site-title">$hyde{site_title}</span>
+	  </a>
+	</h1>
+	<img class="portrait" src="/assets/img/simon.jpg" alt="Profile of Simon">
+	<p>$hyde{description}</p>
+	<p class="contact">
+	  Email: <a href="mailto:NOMAIL">no current email</a>
+	</p>
+
+	<ul class="profile-links">
+		   <li>
+		     <a href="https://github.com/lederhilger" aria-label="GitHub" title="GitHub">
+		       <img src="/assets/img/icons/invertocat.svg" alt="" class="profile-icon profile-icon-light">
+		       <img src="/assets/img/icons/dark_invertocat.svg" alt="" class="profile-icon profile-icon-dark">
+		     </a>
+		   </li>
+		   <li>
+		     <a href="https://gitlab.com/lederhilger" aria-label="GitLab" title="GitLab">
+		       <img src="/assets/img/icons/gitlab.svg" alt="" class="profile-icon profile-icon-light">
+		       <img src="/assets/img/icons/dark_gitlab.svg" alt="" class="profile-icon profile-icon-dark">
+		     </a>
+		   </li>
+		   <li>
+		     <a href="https://linkedin.com/in/simonled" aria-label="LinkedIn" title="LinkedIn">
+		       <img src="/assets/img/icons/in.svg" alt="" class="profile-icon profile-icon-light">
+		       <img src="/assets/img/icons/dark_in.svg" alt="" class="profile-icon profile-icon-dark">
+		     </a>
+		   </li>
+	</ul>
+      </header>
+      <button class="vesper" type="button" aria-pressed="false">NOX</button>
+      <section>
+	$hyde{content}
+      </section>
+    </div>
+    <script src="/assets/js/dark.js"></script>
+    <script src="/assets/js/swatches.js"></script>
+    <script src="/assets/js/dither.js"></script>
+  </body>
+</html>  

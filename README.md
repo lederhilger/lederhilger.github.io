@@ -1,6 +1,6 @@
 # Personal and academic website
 
-`Jekyll`-based GitHub page.
+`hyde`-based GitHub page.
 
 ## Compiling the LaTeX figures
 
