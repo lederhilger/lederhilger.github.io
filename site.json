@@ -6,7 +6,7 @@
 	    "title": "Home",
 	    "source": "index.html",
 	    "output": "index.html",
-	    "layouy": "default",
+	    "layout": "default",
 	    "section": ""
 	},
 	{
