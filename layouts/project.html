@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>$hyde{title}</title>
+    <link rel="stylesheet" href="/assets/css/project.css">
+    <script>
+      window.MathJax = {
+	  tex: {
+	      inlineMath: [['$', '$']],
+	      displayMath: [['\\[', '\\]']]
+	  },
+	  svg: {
+	      fontCache: 'global'
+	  }
+      }
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"></script>
+  </head>
+  <body data-project="$hyde{title}">
+    <header class="project-header">
+      <a class="project-home" href="/" aria-label="Return home">
+	<span id="site-title">$hyde{site_title}</span>
+      </a>
+      <a class="project-index" href="/projects/">PROJECTS</a>
+    </header>
+    <div class="project-shell">
+      <aside class="project-directory">
+	<nav aria-label="project directory">
+	  <h2>ACADEMIC</h2>
+	  <ul>
+	    <li><a href="/projects/dlangfmm/">dlangfmm</a></li>
+	  </ul>
+
+	  <h2>PERSONAL</h2>
+	  <ul>
+	    <li><a href="/projects/altshiftkeys/">altshiftkeys</a></li>
+	    <li><a href?"/projects/hyde/">hyde</a></li>
+	  </ul>
+	</nav>
+      </aside>
+      <main>
+	<article>
+	  $hyde{content}
+	</article>
+      </main>
+    </div>
+    <script>
+      const normalizePath = path => path.replace(/index\.html$/, "");
+      const currentPath = normalizePath(location.pathname);
+      document.querySelectorAll(".project-directory a").forEach(link => {
+	  if (normalizePath(link.pathname) === currentPath) {
+	      link.setAttribute("aria-current", "page");
+	  }
+      });
+    </script>
+  </body>
+</html>

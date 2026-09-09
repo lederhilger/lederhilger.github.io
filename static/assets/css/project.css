@@ -1,0 +1,222 @@
+@font-face{
+    font-family: "Toshiba TxL1";
+    src: url("../fonts/toshibatxl1/8x16.woff") format("woff");
+    font-wieght: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM VGA";
+    src: url("../fonts/ibmvga/8x16.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-displat: swap;
+}
+
+:root {
+    --background: #000000;
+    --text: #ffffff;
+    --code-background: #0d0d0b;
+    --code-text: #f2ece4;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: var(--background);
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 1.5rem;
+    color: var(--text);
+    background: var(--backlground);
+    font-family: "Toshiba TxL1", monospace;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+a {
+    color: var(--text);
+}
+a:hover, a:focus {
+    color: car(--background);
+    background: var(--text);
+}
+a:focus {
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+}
+
+#site-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    whitespace: nowrap;
+}
+
+.project-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: center;
+    max-width: 76rem;
+    margin: 0 auto 1.5rem;
+    padding: .75rem 1rem;
+    border: 1px solic var(--text);
+}
+
+.project-index {
+    text-decoration: none;
+    padding: .35rem .65rem;
+}
+
+.project-home {
+    text-decoration: none;
+    display: flex;
+    min-width: 0;
+}
+
+.project-shell {
+    display: grid;
+    grid-template-columns: 15rem minmax(0, 1fr);
+    gap: 1.5rem;
+    max-width: 76rem;
+    margin: 0 auto;
+}
+
+.project-directory {
+    min-width: 0;
+    border: 1px solid var(--text);
+    align-self: start;
+    padding: 1rem;
+}
+
+.project-directory h2 {
+    margin 0;
+    padding: .3rem .5rem;
+    color: var(--background);
+    background: var(--text);
+    font: inherit;
+}
+
+.project-directory h2:not(:first-child) {
+    margin-top: 1rem;
+}
+
+.project-directory ul {
+    margin: .5rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.project-directory a {
+    display: block;
+    padding: .25rem .5rem;
+    text-decoration: none;
+}
+
+.project-directory a::before {
+    content: "  ";
+    white-space: pre;
+}
+
+.project-directory a[aria-current="page"] {
+    color: var(--background);
+    background: var(--text);
+}
+
+.project-list {
+    padding-left: 1.5rem;
+}
+
+.project-list li {
+    margin-bottom: .5rem;
+}
+
+main {
+    min-width: 0;
+    border: 1px solid var(--text);
+    padding: clamp(1rem, 3vw, 2.5rem);
+}
+
+h1, h2, h3 {
+    font: inherit;
+    line-height: 1.25;
+}
+
+h1 {
+    margin: 0 0 1.5rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid var(--text);
+    font-size: 1.5rem;
+}
+
+h2 {
+    margin: 2rem 0 .75rem;
+    font-size: 1.2rem;
+}
+
+h3 {
+    margin: 1.5rem 0 .5rem;
+}
+
+p, ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+pre {
+    margin-top: 0;
+    margin-obttom: 1rem;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 1rem;
+    font-family: "IBM VGA", monospace;
+    color: var(--code-text);
+    background: var(--code-background);
+    border: 1px solid var(--text);
+    lineheight: 1.25;
+}
+
+code, kbd, samp {
+    font-family: "IBM VGA", monospace;
+}
+
+@media (max-width: 700px) {
+    body {
+	padding: .75rem;
+    }
+
+    .project-header {
+	grid-template-columns: minmax(0, 1fr);
+    }
+
+    .project-index {
+	justify-self: start;
+    }
+
+    .project-shell {
+	grid-template-columns: minmax(0, 1fr);
+    }
+
+    .project-directory nav {
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr);
+	gap .5rem 1rem;
+	align-items: start;
+    }
+
+    .project-directory h2:not(:first-child), project-directory ul {
+	margin-top 0;
+    }
+}
+
+@media (max-width: 430px;) {
+    .project-directory nav {
+	grid-template-columns: minmax(0, 1fr);
+    }
+}

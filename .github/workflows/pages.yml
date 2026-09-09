@@ -1,0 +1,65 @@
+name: Build and deploy GitHub Pages
+
+on:
+	push:
+		branches: [main]
+	workflow_dispatch:
+
+permissions:
+	contents: read
+	pages: write
+	id-token: write
+
+concurrency:
+	group: pages
+	cancel-in-progress: false
+
+jobs:
+	build:
+		runs-on: ubuntu-latest
+
+		steps:
+			- name: Checkout website
+			  uses: actions/checkout@v6
+			  with:
+				path: site
+
+			- name: Checkout hyde
+			  uses: actions/checkout@v6
+			  with:
+				repository: lederhilger/hyde
+				ref: "<HYDE-COMMIT-SHA>"
+				path: hyde
+
+			- name: Install LDC
+			  uses: dlang-community/setup-dlang@v2
+			  with:
+				compiler: ldc-1.42.0
+
+			- name: Build hyde
+			  working-directory: hyde
+			  run: dub build --compiler="$DC" --skip-registry=all --build=release
+
+			- name: Build website
+			  run: ./hyde/build/hyde build --site ./site
+
+			- name: Configure GitHub Pages
+			  uses: actions/configure-pages@v5
+
+			- name: Upload websire
+			  uses: actions/upload-pages-artifact@v4
+			  with:
+				path: site/public
+
+	deploy:
+		needs: build
+		runs-on: ubuntu-latest
+
+		environment:
+			name: github-pages
+			url: ${{ steps.deployment.outputs.page_url }}
+
+		steps:
+			- name: Deploy
+			  id: deployment
+			  uses: actions/deploy-pages@v4
