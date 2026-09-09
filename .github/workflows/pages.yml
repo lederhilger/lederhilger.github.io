@@ -22,19 +22,19 @@ jobs:
       - name: Checkout website
         uses: actions/checkout@v6
         with:
-        path: site
+          path: site
 
       - name: Checkout hyde
         uses: actions/checkout@v6
         with:
-        repository: lederhilger/hyde
-        ref: 508737847f971419f9f3f493fed3575a664c8ff2
-        path: hyde
+          repository: lederhilger/hyde
+          ref: 508737847f971419f9f3f493fed3575a664c8ff2
+          path: hyde
 
       - name: Install LDC
         uses: dlang-community/setup-dlang@v2
         with:
-        compiler: ldc-1.42.0
+          compiler: ldc-1.42.0
 
       - name: Build hyde
         working-directory: hyde
@@ -49,7 +49,7 @@ jobs:
       - name: Upload websire
         uses: actions/upload-pages-artifact@v4
         with:
-        path: site/public
+          path: site/public
 
   deploy:
     needs: build
