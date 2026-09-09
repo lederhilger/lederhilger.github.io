@@ -28,7 +28,7 @@ jobs:
 			  uses: actions/checkout@v6
 			  with:
 				repository: lederhilger/hyde
-				ref: "<HYDE-COMMIT-SHA>"
+				ref: 508737847f971419f9f3f493fed3575a664c8ff2
 				path: hyde
 
 			- name: Install LDC
