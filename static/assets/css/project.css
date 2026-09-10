@@ -1,7 +1,7 @@
 @font-face{
     font-family: "Toshiba TxL1";
     src: url("../fonts/toshibatxl1/8x16.woff") format("woff");
-    font-wieght: 400;
+    font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
@@ -11,7 +11,7 @@
     src: url("../fonts/ibmvga/8x16.woff") format("woff");
     font-weight: 400;
     font-style: normal;
-    font-displat: swap;
+    font-display: swap;
 }
 
 :root {
@@ -34,7 +34,7 @@ body {
     margin: 0;
     padding: 1.5rem;
     color: var(--text);
-    background: var(--backlground);
+    background: var(--background);
     font-family: "Toshiba TxL1", monospace;
     font-size: 16px;
     line-height: 1.5;
@@ -44,7 +44,7 @@ a {
     color: var(--text);
 }
 a:hover, a:focus {
-    color: car(--background);
+    color: var(--background);
     background: var(--text);
 }
 a:focus {
@@ -55,7 +55,7 @@ a:focus {
 #site-title {
     overflow: hidden;
     text-overflow: ellipsis;
-    whitespace: nowrap;
+    white-space: nowrap;
 }
 
 .project-header {
@@ -66,7 +66,7 @@ a:focus {
     max-width: 76rem;
     margin: 0 auto 1.5rem;
     padding: .75rem 1rem;
-    border: 1px solic var(--text);
+    border: 1px solid var(--text);
 }
 
 .project-index {
@@ -96,7 +96,7 @@ a:focus {
 }
 
 .project-directory h2 {
-    margin 0;
+    margin: 0;
     padding: .3rem .5rem;
     color: var(--background);
     background: var(--text);
@@ -171,7 +171,7 @@ p, ul {
 
 pre {
     margin-top: 0;
-    margin-obttom: 1rem;
+    margin-bottom: 1rem;
     max-width: 100%;
     overflow-x: auto;
     padding: 1rem;
@@ -179,7 +179,7 @@ pre {
     color: var(--code-text);
     background: var(--code-background);
     border: 1px solid var(--text);
-    lineheight: 1.25;
+    line-height: 1.25;
 }
 
 code, kbd, samp {
@@ -206,16 +206,16 @@ code, kbd, samp {
     .project-directory nav {
 	display: grid;
 	grid-template-columns: auto minmax(0, 1fr);
-	gap .5rem 1rem;
+	gap: .5rem 1rem;
 	align-items: start;
     }
 
-    .project-directory h2:not(:first-child), project-directory ul {
-	margin-top 0;
+    .project-directory h2:not(:first-child), .project-directory ul {
+	margin-top: 0;
     }
 }
 
-@media (max-width: 430px;) {
+@media (max-width: 430px) {
     .project-directory nav {
 	grid-template-columns: minmax(0, 1fr);
     }
