@@ -6,12 +6,12 @@
   The vortex lattice method isn't really concerned with the displacement of the air flowing past it due to the physical thickness of the blades themselves, so this approximation of the blades as panels is fine.
   The problem I was faced with was how I was supposed to extract the mean camber line from the finite number of points provided to me by some <code>dat</code>-file I found online.
   You see, for my bachelor's thesis, I was told to use the SD7032 profile as the exemplary airfoil on which to base my analysis.
-  This airfoil is only found as a collection of sixty or so points that define a polygon that approximates it.<sup><a href="#ref-selig1989airfoils">1</a></sup>
+  This airfoil is only found as a collection of sixty or so points that define a polygon that approximates it.<sup><a href="#ref-selig1989airfoils-1">1</a></sup>
 </p>
 
 <p>
   For my thesis, I was reading many of the papers of John <span class="smallcaps">Hess</span> and Apollo <span class="smallcaps">Smith</span>, a paper of the former suggesting what would inspire me to pursue this topic, even though it wasn't really relevant to its main research question.
-  This paper of <span class="smallcaps">Hess</span>'s, and pretty much all his papers on the topic, pertained to the representation of the wing in full for the displacement solution, but with a very similar construction of bound vorticity on the mean camber line.<sup><a href="#ref-hess1974problem-2">2</a></sup>
+  This paper of <span class="smallcaps">Hess</span>'s, and pretty much all his papers on the topic, pertained to the representation of the wing in full for the displacement solution, but with a very similar construction of bound vorticity on the mean camber line.<sup><a href="#note-hess1974problem-2">2</a></sup>
   He suggests that an airfoil given as an equal distribution of points on the pressure and suction sides of the airfoil would yield pairwise vertices by which one could find a linear interpolation of the mean camber line through the midpoints of the lines connecting them, the leading and trailing edge vertices notwithstanding.
   Although I try to craft my writing such that one may understand what I'm talking about just by reading my text, I understand that it may be cumbersome, so here's a picture:
 </p>
@@ -38,7 +38,7 @@
 </p>
 
 <canvas id="airfoil-canvas" width="500" height="180"></canvas>
-<script type="module" src="/assets/medial/airfoil.js"></script>
+<script type="module" src="/assets/js/medial/airfoil.js"></script>
 <div id="airfoil-controls">
      <label><input type="range" id="airfoil-points" min="4" max="60" step="4" value="16">points</label>
 </div>
@@ -108,7 +108,6 @@
 <ol class="notes">
     <li id="note-selig1989airfoils-1">
 	Coördinates are found on page 122 in <a href="#selig1989airfoils"><span class="smallcaps">Selig</span> <em>et al.</em> (1989)</a>.
-	<a href="#ref-selig1989airfoils-1"></a>
     </li>
     <li id="note-hess1974problem-2">
     	See figure 7a in <a href="#hess1974problem"><span class="smallcaps">Hess</span> (1974).</a>
