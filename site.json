@@ -38,6 +38,13 @@
 	    "section": "projects"
 	},
 	{
+	    "title": "hyde",
+	    "source": "projects/hyde/index.html",
+	    "output": "projects/hyde/index.html",
+	    "layout": "project",
+	    "section": "projects"
+	},
+	{
 	    "title": "dlangfmm",
 	    "source": "projects/dlangfmm/index.html",
 	    "output": "projects/dlangfmm/index.html",
