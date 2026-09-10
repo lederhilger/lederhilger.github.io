@@ -64,6 +64,13 @@
 	    "output": "weblog/medial/index.html",
 	    "layout": "default",
 	    "section": "weblog"
+	},
+	{
+	    "title": "Hva jeg egentlig driver med",
+	    "source": "weblog/bedriv/index.html",
+	    "output": "weblog/bedriv/index.html",
+	    "layout": "default",
+	    "section": "weblog"
 	}
     ]
 }

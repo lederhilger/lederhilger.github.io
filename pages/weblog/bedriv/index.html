@@ -1,0 +1,83 @@
+<h1 id="bedriv">Hva jeg egentlig driver med</h1>
+
+<p>
+  Hei!
+  Du har blitt henvist hit fordi du lurer på hva jeg gjør, og vedkommende du spurte enten ikke gidder å forklare, eller fordi de er like usikre som du er.
+  Som du sikkert skjønner fra det faktum at jeg har kodet min egen nettside, er det noe teknisk jeg driver med.
+  Jeg begynte på bachelorprogrammet <em>Matematikk med informatikk</em> under Matematisk institutt ved Universitetet i Oslo (UiO) i 2021.
+  Informatikk er det norske begrepet for <em>computer science</em>.
+  Siden jeg var omtrent tolv år gammel, har jeg villet bli flyingeniør.
+  For å ikke måtte forlate mitt kjære Oslo, begynte jeg på et matematikkstudium, fordi jeg tenkte alle ingeniører trenger matematikk.
+  Planen var så å ta en mer fagsepsifikk mastergrad i utlandet.
+</p>
+
+<p>
+  Slik ble det jo ikke.
+  Det viser seg at på Matematisk institutt ved UiO har de en egen seksjon hvor de forsker på <em>fluidmekanikk</em>.
+  Dette er fagfeltet som omhandler væsker og gasser, eller <em>fluider</em>, som er fellesbetegnelsen.
+  Vi kan holde det kort, ved at jeg sier "nei, det er ikke fysikk", og holde det til det.
+  Aller fluider kan nemlig beskrives med én matematisk likning (<span class="smallcaps">Navier&mdash;Stokes</span>-likningen), og å løse denne likningen er det fluidmekanikk handler om.
+  Jeg har alltids syntes at matematikk i seg selv er veldig gøy og spennende, så jeg tok mange matematikkemner og enda flere fluidmekanikkemner.
+  Jeg ble så glad i fluidmekanikk, at jeg gikk til slutt hadde gjort en halv master med ekstraemner da jeg var ferdig med bachelorgraden!
+</p>
+
+<p>
+  Det siste året på bacheloren min begynte Tor Anders Nygaard som professor på seksjonen min.
+  Han jobber egentlig fulltid som ingeniør på Institutt for energiteknikk (IFE), men har en bistilling ved UiO for å undervise sitt fagfelt: <em>vindtrubiner</em>.
+  Dette var en gyllen mulighet for meg å skrive om det jeg så lenge hadde hatt lyst til, og jeg skrev bacheloroppgaven min under hans veiledning om grensesjikt over vingeprofiler.
+  Hva grensesjikt og vingeprofiler er, er ikke så viktig, men begge to er veldig viktige for hvordan både fly og vindturbiner fungerer.
+  Jeg valgte ham som hovedveileder for msteroppgaven også.
+</p>
+
+<p>
+  Masteroppgaven min handlet om hvordan man kan gjøre visse utregninger raskere.
+  Tor Anders har nemlig skrevet programvare for IFE som simulerer hvordan vindturbiner som flyter på havet oppfører seg.
+  Dette problemet er veldig komplekst på flere måter, for man må ikke bare regne på luften som strømmer forbi.
+  Man må regne på bølgene som treffer turbinen, hvordan turbinen reagerer på det, hvordan forankringen reagerer på det igjen, og ikke minst hvordan tårnet beveger seg grunnet rotasjonen av turbinbladene.
+  Min masteroppgave handlet spesifikt om hvordan vinden selv ser ut etter den har strømmet forbi turbinen.
+  Dette er kanskje det viktigste av alle beregningene, fordi det viser seg at når man setter opp likningssystemet, vil kreftene som virker på turbinbladene (og dermed bestemmer hvor fort de snurrer) bestemmes av hvordan hele vindfeltet ser ut.
+  I oppgaven min viste jeg at man ikke trenger å se på all luften, men bare den som faktisk har vært i kontakt med turbinbladene (dette har med grensesjikt å gjøre).
+  Dette er ikke et nytt resultat i det hele tatt, men tilnærmingen min er litt sær for forskningsfeltet.
+  Denne tilnærmingen heter differensialgeometri, og er like vanskelig som det høres ut.
+  ...
+  Når jeg tenker meg om er det faktisk vanskeligere.
+  Uansett, er denne utregningen jeg skulle gjøre raskere å finne farten til alle disse luftpartiklene.
+</p>
+
+<p>
+  Når vi driver med beregningsorientert matematikk, snakker vi ofte om <em>kompleksitet</em>, eller hvor mange regneoperasjoner maskinen må gjøre for å finne svaret.
+  Dette problemet med å finne farten til alle luftpartiklene er det vi kaller et $N^2$-problem: si vi har en million luftpartikler.
+  Da vil maskinen bruke $1.000.000^2$, eller en billion (tusen milliarder) regneoperasjoner.
+  Det er tullete!
+  I masteroppgaven brukte jeg en algoritme for å gjøre utregningen av farten til luftpartiklene mye raskere.
+</p>
+
+<p>
+  Si du skal regne på tyngdekraften mellom alle stjernene i en galakse.
+  <span class="smallcaps">Newton</span>s lover sier at tyngdekraften virker på alle disse stjernene imellom: hver eneste stjerne drar på hver eneste andre stjerne.
+  <span class="smallcaps">Newton</span>s lover sier også at tyngdekraften mellom stjerner som er veldig langt fra hverandre er mye svakere enn stjerner som er nærme hverandre.
+  Ideen med algoritmen jeg brukte var å utnytte denne egenskapen.
+  Istedenfor å regne kreftene mellom stjernene individuelt, kan man ta flere stjerner langt unna og klumpe dem sammen, og så regne tyngdekraften.
+  Det viser seg at om man gjør dette, kan man redusere problemet til kompleksitet til $N\log{N}$.
+  Dette sier deg kanskje ikke så mye, men det er mye bedre enn $N^2$!
+</p>
+
+<p>
+  Så jeg brukte denne ideen i masteroppgaven min, og gjorde utregningen veldig rask.
+  Dette praktiske resultatet, sammen med teorien og de matematiske utledningene, var det masteroppgaven min handlet om.
+  Jeg gjorde utregninger på vindtrubinvaker.
+</p>
+
+<h2>Hva skal jeg i Belgia?</h2>
+
+<p>
+  NATO sin forskningsgren har et institutt for fluidmekanikk, <em>The <span class="smallcaps">von Kármán</span> Institute for Fluid Dynamics</em> (VKI).
+  Teodor <span class="smallcaps">von Kármán</span> var en ungarsk forsker innenfor fluidmekanikk, som bidro mye til USAs luftforsvar under og etter andre verdenskrig.
+  Han så å si opprettet forskningsgrenen til NATO, og instituttet er oppkalt etter ham for det arbeidet.
+  Dette betyr jo selvfølgelig at VKI driver med våpenforskning.
+  Jeg har fått plass på <em>research master</em>-programmet, som er et program for dem som er ferdig med mastergrad, og er kvalifiserende for å ta en doktorgrad ved instituttet.
+  Jeg planlegger altså å ta en doktotrgrad der.
+  Instituttet har tre seksjoner: luftfart, turbomaskineri, og miljøstrømmer.
+  Jeg er tatt opp for å skrive om vindturbiner under seksjon for miljøstrømmer.
+  Som del av programmet må man ta noen emner samtidig som man skriver en minimasteroppgave, så det blir spennende (og sikkert veldig intenst)!
+</p>
