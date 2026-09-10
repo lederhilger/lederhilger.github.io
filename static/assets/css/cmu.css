@@ -1,38 +1,6 @@
 @font-face {
-    font-family: "New Computer Modern";
-    src: url("../fonts/newcomputermodern/NewCM10-Book.otf") format("opentype");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "New Computer Modern";
-    src: url("../fonts/newcomputermodern/NewCM10-BookItalic.otf") format("opentype");
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "New Computer Modern";
-    src: url("../fonts/newcomputermodern/NewCM10-Bold.otf") format("opentype");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "New Computer Modern";
-    src: url("../fonts/newcomputermodern/NewCM10-BoldItalic.otf") format("opentype");
-    font-weight: 700;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
     font-family: "New Computer Modern Mono";
-    src: url("../fonts/newcomputermodern/NewCMMono10-Book.otf") format("opentype");
+    src: url("../fonts/newcmmono/book.otf") format("opentype");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -40,7 +8,7 @@
 
 @font-face {
     font-family: "New Computer Modern Mono";
-    src: url("../fonts/newcomputermodern/NewCMMono10-BookItalic.otf") format("opentype");
+    src: url("../fonts/newcmmodern/bookitalic.otf") format("opentype");
     font-weight: 400;
     font-style: italic;
     font-display: swap;
@@ -48,7 +16,7 @@
 
 @font-face {
     font-family: "New Computer Modern Mono";
-    src: url("../fonts/newcomputermodern/NewCMMono10-Bold.otf") format("opentype");
+    src: url("../fonts/newcmmono/bold.otf") format("opentype");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -56,7 +24,7 @@
 
 @font-face {
     font-family: "New Computer Modern Mono";
-    src: url("../fonts/newcomputermodern/NewCMMono10-BoldItalic.otf") format("opentype");
+    src: url("../fonts/newcmmono/bolditalic.otf") format("opentype");
     font-weight: 700;
     font-style: italic;
     font-display: swap;
