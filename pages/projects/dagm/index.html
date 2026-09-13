@@ -2,7 +2,10 @@
 
 <p>
   This is a project I started working on after reading Inigo Quilez' article on generating color palettes using the cosine function.
-  The idea is to map the unit interval $x$ through the expression $\alpha + \beta \cos{\gamma x + \delta}$, where the parameters $\alpha$, $\beta$, $\gamma$, $\delta$ all range from 0 to 1.
+  The idea is to map the unit interval <code>x</code> through the expression <code>α + β * cos(γ * x + δ)</code>, where the parameters <code>[α, β, γ, γ]</code> all range from 0 to 1.
+  We can then map the output to a <code>Vectrix(&lt;<span style="color:rgb(255,0,0)">r</span>&gt;, &lt;<span style="color:rgb(0,255,0)">g</span>&gt;, &lt;<span style="color:rgb(0,0,255)">b</span>&gt;)</code> such that the unit interval of <code>N</code> partitions outputs that many colors.
+  Say we have 64 partitions of the interval, and choose <code>α = (1, 1, 1)</code> whilst keeping all the other parameters zero.
+  All the partitions will then be mapped to <code>α</code>, and output 64 instances of white, since <code>(1, 1, 1)≅(255, 255, 255)</code>.
 </p>
 
 <pre><code class="language-bash">$ dub run -b release -- 0.0
