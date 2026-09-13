@@ -57,7 +57,7 @@
 	    "output": "projects/dagm/index.html",
 	    "layout": "project",
 	    "section": "projects"
-	}
+	},
 	{
 	    "title": "Weblog",
 	    "source": "weblog/index.html",
