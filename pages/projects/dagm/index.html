@@ -8,6 +8,56 @@
   All the partitions will then be mapped to <code>α</code>, and output 64 instances of white, since <code>(1, 1, 1)≅(255, 255, 255)</code>.
 </p>
 
+<p>
+  Whenever I see anything related to cosine, I immediately think back to when I was doing a special curriculum on marine hydrodynamics during my masters.
+  The first mandatory assignment was on the boundary element method, and calculating the added mass of a square, analytically and numerically.
+  It turns out that the added mass can be expressed in terms of elliptic integrals.
+  Anyways, implementing the boundary element method for the square was not trivial, since the velocity potential is singular at the corners.
+  The obvious remedy is of course using Čebyšov nodes to bias the same number of points towards the corners, using a cosine map.
+  With the elliptic integrals fresh in my memory and peripheral knowledge of elliptic trigonometry at hand, I wondered if there was some generalization that could be done.
+</p>
+
+<p>
+  As it turns out, there is indeed.
+  Wihout going into too much detail on the mathematics, as I have already written a great deal on this very topic already, the Jacobi elliptic function <code>cd(x, k)</code> is this generalized version of cosine.
+  For parameter <code>k = 0</code>, we actually have that <code>cd(x, 0) = cos(x)</code>, and also <code>cd(x, 1) = 1</code>.
+  This transition is smooth for <code>k</code> in the unit interval, so we can think of <code>cd</code> as a fatter version of cosine, becoming gradually wider as the parameter increases.
+  And so, I wanted to implement this function (from scratch) for that assignment.
+</p>
+
+<p>
+  My approach to this implementation came from a book I happened to find called "Pi and the AGM," which concerns tiself with the arithmetic-geometric mean (AGM) algorithm for calculating certain values.
+  It turns out the AGM shares an alarming amount of properties with the elliptic integrals, to such a degree that they are pretty much inversely proportional.
+  Manipulations of the functions yield algorithms for which <code>cd</code> and its quarterperiod <code>K(k)</code> can be calculated with quadratic convergence.
+  I implemented these in Python for that assigment, and got the results I wanted.
+  Now I am a different man, preferring to code in D, and so the <code>dagm</code> repository was created with the generation of variants of the cosine color palettes in mind.
+</p>
+
+<p>
+  The project is pretty heavily modularized, for which there are two reasons:
+  <ol>
+    <li>The original Python project is modularized like this.</li>
+    <li>I want to keep the functionality separate.</li>
+  </ol>
+  What I mean by the second point is that I want it to be very clear where one can find each type of function.
+  These functions are not really written with the color palette generation in mind, so there's incentive to keep all functionality separate.
+</p>
+
+<pre><code class="language-bash">[dagm]$ tree
+.
+├── dub.json
+├── README.md
+└── source
+    ├── agm.d
+    ├── dagm.d
+    ├── ellipticity.d
+    ├── jacobi.d
+    ├── palette.d
+    └── vectrix.d
+
+2 directories, 8 files
+</pre></code>
+
 <pre><code class="language-bash">$ dub run -b release -- 0.0
      Running dagm 0.0
 </code>
