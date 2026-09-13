@@ -52,6 +52,13 @@
 	    "section": "projects"
 	},
 	{
+	    "title": "dagm",
+	    "source": "projects/dagm/index.html",
+	    "output": "projects/dagm/index.html",
+	    "layout": "project",
+	    "section": "projects"
+	}
+	{
 	    "title": "Weblog",
 	    "source": "weblog/index.html",
 	    "output": "weblog/index.html",
