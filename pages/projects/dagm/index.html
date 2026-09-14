@@ -63,8 +63,7 @@
   I cast the color channels, which are doubles, to ubytes to get clean RGB values between 0 and 255:
 </p>
 
-<pre><code class="language-d">
-Vectrix[] colors;
+<pre><code class="language-d">Vectrix[] colors;
 colors = palette(x, α, β, γ, δ, Ellipticity(k));
 foreach (color; colors)
 {
@@ -81,8 +80,7 @@ foreach (color; colors)
   The matter is swiftly mollified by simply clamping the ends so that extreme values don't overflow or underflow:
 </p>
 
-<pre><code class="language-d">
-Vectrix[] colors;
+<pre><code class="language-d">Vectrix[] colors;
 colors = palette(x, α, β, γ, δ, Ellipticity(k));
 foreach (color; colors)
 {
