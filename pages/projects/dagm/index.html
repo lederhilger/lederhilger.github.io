@@ -43,6 +43,21 @@
   These functions are not really written with the color palette generation in mind, so there's incentive to keep all functionality separate.
 </p>
 
+<pre><code class="language-bash">[dagm]$ tree
+.
+├── dub.json
+├── README.md
+└── source
+    ├── agm.d
+    ├── dagm.d
+    ├── ellipticity.d
+    ├── jacobi.d
+    ├── palette.d
+    └── vectrix.d
+
+2 directories, 8 files
+</pre></code>
+
 <p>
   One problem I encountered for high parameters (e.g. <code>k = 0.999</code>) was overflowing color outputs.
   I cast the color channels, which are doubles, to ubytes to get clean RGB values between 0 and 255:
@@ -76,21 +91,6 @@ foreach (color; colors)
     immutable ubyte <span style="color:rgb(0,0,255)">b</span> = cast(ubyte)(clamp(color.<span style="color:rgb(0,0,255)">r</span>, 0.0, 1.0) * 255 + .5);
 }
 </code></pre>
-
-<pre><code class="language-bash">[dagm]$ tree
-.
-├── dub.json
-├── README.md
-└── source
-    ├── agm.d
-    ├── dagm.d
-    ├── ellipticity.d
-    ├── jacobi.d
-    ├── palette.d
-    └── vectrix.d
-
-2 directories, 8 files
-</pre></code>
 
 <p>
   We take inspiration from Arhip Kuindži's "Лунная ночь на Днепре," an eerie green landscape portrait of the river Dnieper.
@@ -145,5 +145,5 @@ foreach (color; colors)
 <code class="language-bash">$ dub run -b release -- 0.999
        Running dagm 0.999
 </code>
-<span style="color:rgb(4,225,4)">█</span><span style="color:rgb(5,227,4)">█</span><span style="color:rgb(5,229,4)">█</span><span style="color:rgb(5,231,4)">█</span><span style="color:rgb(5,234,4)">█</span><span style="color:rgb(6,238,4)">█</span><span style="color:rgb(6,241,4)">█</span><span style="color:rgb(6,246,4)">█</span><span style="color:rgb(6,250,4)">█</span><span style="color:rgb(7,0,4)">█</span><span style="color:rgb(7,5,5)">█</span><span style="color:rgb(8,11,5)">█</span><span style="color:rgb(8,18,6)">█</span><span style="color:rgb(8,26,6)">█</span><span style="color:rgb(9,33,7)">█</span><span style="color:rgb(9,42,8)">█</span><span style="color:rgb(10,50,10)">█</span><span style="color:rgb(10,58,12)">█</span><span style="color:rgb(11,67,16)">█</span><span style="color:rgb(11,75,20)">█</span><span style="color:rgb(12,83,25)">█</span><span style="color:rgb(13,90,32)">█</span><span style="color:rgb(13,97,40)">█</span><span style="color:rgb(14,104,50)">█</span><span style="color:rgb(15,110,62)">█</span><span style="color:rgb(15,115,74)">█</span><span style="color:rgb(16,120,87)">█</span><span style="color:rgb(17,124,100)">█</span><span style="color:rgb(18,128,112)">█</span><span style="color:rgb(19,131,122)">█</span><span style="color:rgb(20,134,131)">█</span><span style="color:rgb(21,137,138)">█</span><span style="color:rgb(22,139,144)">█</span><span style="color:rgb(23,141,149)">█</span><span style="color:rgb(24,142,152)">█</span><span style="color:rgb(25,144,155)">█</span><span style="color:rgb(27,145,157)">█</span><span style="color:rgb(28,146,158)">█</span><span style="color:rgb(29,147,159)">█</span><span style="color:rgb(31,147,160)">█</span><span style="color:rgb(32,148,161)">█</span><span style="color:rgb(34,148,161)">█</span><span style="color:rgb(36,149,161)">█</span><span style="color:rgb(37,149,161)">█</span><span style="color:rgb(39,149,162)">█</span><span style="color:rgb(41,150,162)">█</span><span style="color:rgb(43,150,162)">█</span><span style="color:rgb(45,150,162)">█</span><span style="color:rgb(47,150,162)">█</span><span style="color:rgb(49,150,162)">█</span><span style="color:rgb(52,150,162)">█</span><span style="color:rgb(54,151,162)">█</span><span style="color:rgb(57,151,162)">█</span><span style="color:rgb(59,151,162)">█</span><span style="color:rgb(62,151,162)">█</span><span style="color:rgb(65,151,162)">█</span><span style="color:rgb(68,151,162)">█</span><span style="color:rgb(71,151,162)">█</span><span style="color:rgb(74,151,162)">█</span><span style="color:rgb(78,151,162)">█</span><span style="color:rgb(81,151,162)">█</span><span style="color:rgb(85,151,162)">█</span><span style="color:rgb(88,151,162)">█</span><span style="color:rgb(92,151,161)">█</span>
+<span style="color:rgb(4,0,4)">█</span><span style="color:rgb(5,0,4)">█</span><span style="color:rgb(5,0,4)">█</span><span style="color:rgb(5,0,4)">█</span><span style="color:rgb(5,0,4)">█</span><span style="color:rgb(6,0,4)">█</span><span style="color:rgb(6,0,4)">█</span><span style="color:rgb(6,0,4)">█</span><span style="color:rgb(6,0,4)">█</span><span style="color:rgb(7,0,4)">█</span><span style="color:rgb(7,5,5)">█</span><span style="color:rgb(8,11,5)">█</span><span style="color:rgb(8,18,6)">█</span><span style="color:rgb(8,26,6)">█</span><span style="color:rgb(9,33,7)">█</span><span style="color:rgb(9,42,8)">█</span><span style="color:rgb(10,50,10)">█</span><span style="color:rgb(10,58,12)">█</span><span style="color:rgb(11,67,16)">█</span><span style="color:rgb(11,75,20)">█</span><span style="color:rgb(12,83,25)">█</span><span style="color:rgb(13,90,32)">█</span><span style="color:rgb(13,97,40)">█</span><span style="color:rgb(14,104,50)">█</span><span style="color:rgb(15,110,62)">█</span><span style="color:rgb(15,115,74)">█</span><span style="color:rgb(16,120,87)">█</span><span style="color:rgb(17,124,100)">█</span><span style="color:rgb(18,128,112)">█</span><span style="color:rgb(19,131,122)">█</span><span style="color:rgb(20,134,131)">█</span><span style="color:rgb(21,137,138)">█</span><span style="color:rgb(22,139,144)">█</span><span style="color:rgb(23,141,149)">█</span><span style="color:rgb(24,142,152)">█</span><span style="color:rgb(25,144,155)">█</span><span style="color:rgb(27,145,157)">█</span><span style="color:rgb(28,146,158)">█</span><span style="color:rgb(29,147,159)">█</span><span style="color:rgb(31,147,160)">█</span><span style="color:rgb(32,148,161)">█</span><span style="color:rgb(34,148,161)">█</span><span style="color:rgb(36,149,161)">█</span><span style="color:rgb(37,149,161)">█</span><span style="color:rgb(39,149,162)">█</span><span style="color:rgb(41,150,162)">█</span><span style="color:rgb(43,150,162)">█</span><span style="color:rgb(45,150,162)">█</span><span style="color:rgb(47,150,162)">█</span><span style="color:rgb(49,150,162)">█</span><span style="color:rgb(52,150,162)">█</span><span style="color:rgb(54,151,162)">█</span><span style="color:rgb(57,151,162)">█</span><span style="color:rgb(59,151,162)">█</span><span style="color:rgb(62,151,162)">█</span><span style="color:rgb(65,151,162)">█</span><span style="color:rgb(68,151,162)">█</span><span style="color:rgb(71,151,162)">█</span><span style="color:rgb(74,151,162)">█</span><span style="color:rgb(78,151,162)">█</span><span style="color:rgb(81,151,162)">█</span><span style="color:rgb(85,151,162)">█</span><span style="color:rgb(88,151,162)">█</span><span style="color:rgb(92,151,161)">█</span>
 </pre>
