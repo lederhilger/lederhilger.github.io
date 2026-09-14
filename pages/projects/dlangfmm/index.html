@@ -1,1 +1,32 @@
-<h1><code>dlangfmm</code></h1>
+<h1>dlangfmm</h1>
+
+<p>
+  This D Language Fast Multipole Method project originates from the Python code I used for my master's thesis "On Accelerating Inviscid Vortical Calculations."
+  Python is not really the appropriate language for the fast multipole method, but I idnd't have the time to learn another language at the time, so I stuck with what I knew.
+  Now that I have some more free time, I figured I'd give the fast multipole method the implementation it deserves.
+  You are free to read my thesis, where I explain the method along derivations of the mathematics, but I will rehash some of it for the sake of selfcontainment.
+  A note of caution, though: I am a zealot for Arnold's geometric hydrodynamics, so I will try to incorporate it where others would rather not.
+</p>
+
+<p>
+  The project has the following structure at the moment:
+</p>
+
+<pre><code>[dlangfmm]$ tree
+.
+├── dub.json
+├── README.md
+└── source
+    ├── dlangfmm.d
+    └── induction
+        ├── harmonics.d
+        ├── octree.d
+        ├── potential.d
+        ├── q2x.d
+        ├── rcr_translator.d
+        ├── solver.d
+        ├── std_translator.d
+        └── types.d
+
+4 directories, 14 files
+</code></pre>
