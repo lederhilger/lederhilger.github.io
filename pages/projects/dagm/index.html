@@ -8,7 +8,7 @@
   }
   .circle {
       position: absolute;
-      --radius: 65;
+      --radius: 30;
       width: calc(var(--radius)*2%);
       height: calc(var(--radius)*2%);
       border-radius: 50%;
@@ -22,13 +22,13 @@
   }
   .circle.green {
       background: rgb(0,121,0);
-      /*magic number is sqrt(3)/2*/
-      top: calc(86.6%-var(--radius)*1%);
+      /*magic numbers are sqrt(3)/2 and sqrt(3)-1*/
+      top: calc(86.6%-var(--radius)*0.732%);
       left: calc(100%-var(--radius)*1%);
   }
   .circle.blue {
       background: rgb(0,0,33);
-      top: calc(86.6%-var(--radius)*1%);
+      top: calc(86.6%-var(--radius)*0.732%);
       left: calc(var(--radius)*1%);
   }
 </style>
