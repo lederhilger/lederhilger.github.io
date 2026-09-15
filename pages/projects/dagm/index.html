@@ -8,7 +8,7 @@
   }
   .circle {
       position: absolute;
-      --radius: 30;
+      --radius: 35;
       width: calc(var(--radius)*2%);
       height: calc(var(--radius)*2%);
       border-radius: 50%;
@@ -23,12 +23,12 @@
   .circle.green {
       background: rgb(0,121,0);
       /*magic numbers are sqrt(3)/2 and sqrt(3)-1*/
-      top: calc(86.6%-var(--radius)*0.732%);
+      top: calc(86.6% - var(--radius)*0.732%);
       left: calc(100%-var(--radius)*1%);
   }
   .circle.blue {
       background: rgb(0,0,33);
-      top: calc(86.6%-var(--radius)*0.732%);
+      top: calc(86.6% - var(--radius)*0.732%);
       left: calc(var(--radius)*1%);
   }
 </style>
@@ -36,7 +36,7 @@
 <h1>dagm</h1>
 
 <p>
-  The D language Arithmetic-Geometric Mean project can be used to construct <span style="color(rgb(255,0,0)">R</span><span style="color:rgb(0,255,0)">G</span><span style="color:rgb(0,0,255)">B</span> color palettes.
+  The D language Arithmetic-Geometric Mean project can be used to construct <span style="color:rgb(255,0,0)">R</span><span style="color:rgb(0,255,0)">G</span><span style="color:rgb(0,0,255)">B</span> color palettes.
 </p>
 
 <p>
