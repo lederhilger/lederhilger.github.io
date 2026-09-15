@@ -1,12 +1,59 @@
+<style>
+  .lotterybox {
+      position: relative;
+      width: 30rem;
+      max-width: 100%;
+      aspect-ratio: 1/1;
+      margin: 0 auto;
+  }
+  .circle {
+      position: absolute;
+      --radius: 65;
+      width: calc(var(--radius)*2%);
+      height: calc(var(--radius)*2%);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: screen;
+  }
+  .circle.red {
+      background: rgb(96,0,0);
+      top: calc(var(--radius)*1%);
+      left: 50%;
+  }
+  .circle.green {
+      background: rgb(0,121,0);
+      /*magic number is sqrt(3)/2*/
+      top: calc(86.6%-var(--radius)*1%);
+      left: calc(100%-var(--radius)*1%);
+  }
+  .circle.blue {
+      background: rgb(0,0,33);
+      top: calc(86.6%-var(--radius)*1%);
+      left: calc(var(--radius)*1%);
+  }
+</style>
+
 <h1>dagm</h1>
+
+<p>
+  The D language Arithmetic-Geometric Mean project can be used to construct <span style="color(rgb(255,0,0)">R</span><span style="color:rgb(0,255,0)">G</span><span style="color:rgb(0,0,255)">B</span> color palettes.
+</p>
 
 <p>
   This is a project I started working on after reading Inigo Quilez' article on generating color palettes using the cosine function.
   The idea is to map the unit interval <code>x</code> through the expression <code>α + β * cos(γ * x + δ)</code>, where the parameters <code>[α, β, γ, δ]</code> all range from 0 to 1.
   We can then map the output to a <code>Vectrix(<span style="color:rgb(255,0,0)">r</span>, <span style="color:rgb(0,255,0)">g</span>, <span style="color:rgb(0,0,255)">b</span>)</code> such that the unit interval of <code>N</code> partitions outputs that many colors.
   Say we have 64 partitions of the interval, and choose <code>α = (1, 1, 1)</code> whilst keeping all the other parameters zero.
-  All the partitions will then be mapped to <code>α</code>, and output 64 instances of white, since <code>(1, 1, 1)≅(255, 255, 255)</code>.
+  All the partitions will then be mapped to <code>α</code>, and output 64 instances of white, since <code>(1, 1, 1) ≅ (255, 255, 255)</code>.
+  For reference, RGB colors are additive, meaning colors can be broken down into individual color channels.
+  Below is the construction of the color <span style="color:rgb(96,121,33)">█</span>:
 </p>
+
+<div class="lotterybox">
+  <div class="circle red"></div>
+  <div class="circle green"></div>
+  <div class="circle blue"></div>
+</div>
 
 <p>
   Whenever I see anything related to cosine, I immediately think back to when I was doing a special curriculum on marine hydrodynamics during my masters.
