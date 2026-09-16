@@ -153,3 +153,39 @@ keycode  29 release
 ^[5  27 0065 0x1b
      53 0065 0x35
 </code></pre>
+
+<p>
+  I'll walk through each of the presses in the order I showed above.
+  Just pressing 5 does indeed output 5.
+  The second column is the ASCII value of the input&mdash;5 has ASCII number 53, for example.
+  Similarly, <kbd>Shify+5</kbd> does indeed print the percent symbol, but <kbd>AltGr+5</kbd> outputs nothing, as the map is void.
+  The caret (<code>^</code>) represents control, and ASCII value 29 corresponds to the "group separator," whatever that is.
+  But it is congruent to what the map indicates, which is <code>Control_bracketright</code>.
+  <kbd>Ctrl+AltGr+5</kbd> outputs nothing.
+  Pressing <kbd>Alt+5</kbd> results in the equivalent of <kbd>Ctrl+]</kbd>, whose ASCII code corresponds to <kbd>Esc</kbd>, followed by 5.
+  So the escape button also functions as the meta key!
+  <kbd>Ctrl+Alt+5</kbd> outputs nothing.
+</p>
+
+<p>
+  Still, if I want to search and replace, being <kbd>M-%</kbd> or <kbd>Alt+Shift+5</kbd>, I am not able to because the ninth column is not available in the keymap.
+  So my project <code>altshiftkeys</code> fixes this issue by patching the map.
+  Having dumped the keys like earlier into the file <code>2bfixd.map</code>, the following Perl script fixes the issue.
+</p>
+
+<pre><code class="language-perl">while (<>) {
+    if (/^keymaps\b/) { s/8,12/8-9,12; print; next }
+    if (/^keycode\s+(\d+)\s*=\s*(.*)$/) {
+    my ($n,@v)=($1, split /\s+/,$2);
+    $v[3]='Control_backslash' if $n==13;
+    my $new=$v[1]=~/^[a-z]/?"Meta_$v[1]":'VoidSymbol';
+    $new=$v[0] if $new eq 'VoidSymbol' && @v
+        && $v[0]=~/^(?:Shift|AltGr|Control|Alt|ShiftL|ShiftR|CtrlL|CtrlR|CapsShift)$/
+        && !grep { $_ ne $v[0] } @v;
+    splice @v,6,0,$new;
+    printf "keycode %3d = %s\n",$n,join(' ', map {sprintf '%-16s', $_ } @v);
+    next;
+    }
+    print;
+}
+</code></pre>
