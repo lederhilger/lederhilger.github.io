@@ -1,4 +1,4 @@
-<h1><code>altshiftkeys</code></h1>
+<h1>altshiftkeys</h1>
 
 <p>
   I have a separate computer I use for computer programming than the one I use for my daily reading and writing.
@@ -49,4 +49,107 @@ System Locale: LANG=en_US.UTF-8
 
 <p>
   The <code>VC Keymap</code> parameter here means virtual console keymap, corresponding to the teletypewriter (<code>/dev/tty1</code>) terminal.
+  Telling my computer what these keymaps are, essentially acting as an interpreter between the keyboard presses and the resulting action on the computer's end, is the program <code>kbd</code>.
+  Now, the problem is that for a lot of keybindings in emacs relies on the meta button <kbd>M</kbd>, which my keyboard does not have.
+  The equivalent on my keyboard is the <kbd>Alt</kbd> button (which one can configure in <code>kbd</code> by declaring <code>alt_is_meta</code>).
+  This shouldn't really be a problem, as looking at the keymap modifiers:
 </p>
+
+<pre><code class="language-bash">$ dumpkeys -l | tail
+Recognized modifier names and their column numbers:
+shift             1
+altgr             2
+control           4
+alt               8
+shiftl           16
+shiftr           32
+ctrll            64
+ctrlr           128
+capsshift       256
+</code></pre>
+
+<p>
+  What this means is that the keypress combination <kbd>Ctrl+Alt+Shift+1</kbd> corresponds to the 4+8+1 = 13th column of the "lookup table" for keycode 2 (the button that says "1").
+  I'll show you exactly what I mean.
+  We can dump the entirety of the Norwegian keymap table into a file named <code>2bfixd.map</code> by running
+</p>
+
+<pre><code class="language-bash">$ dumpkeys --full-table > 2dfixd.map</pre></code>
+
+<p>
+  Grabbing the first line shows us what columns are defined:
+</p>
+
+<pre><code class="language-bash">$ awk 'NR==1' 2bfixd.map
+keymaps 0-2,4,6,8,12
+</code></pre>
+
+<p>
+  Notably, the combination <kbd>Alt+Shift</kbd>, column nine, is not defined.
+  So if I want to search and replace by typing <kbd>Alt+Shift+5</kbd>, or run code by typing <kbd>Ctrl+u Alt+Shift+1</kbd>, I am literally not able to do so, since the ninth column isn't defined.
+  Indeed, we can grab line 7, and see that this is indeed the case:
+</p>
+
+<pre><code class="language-bash">$ awk 'NR==7' 2bfixd.map
+keycode 6 = five    percent    VoidSymbol    Control_bracketright    VoidSymbol    Meta_five    VoidSymbol
+</code></pre>
+
+<p>
+  The defined presses here are <kbd>5</kbd>, <kbd>Shift+5</kbd>, <kbd>AltGr+5</kbd>, <kbd>Ctrl+5</kbd>, <kbd>Ctrl+AltGr+5</kbd>, <kbd>Alt+5</kbd>, and <kbd>Ctrl+Alt+5</kbd>.
+  <code>VoidSymbol</code> means that there isn't a defined output, which is slightly different from the keypress not being defined at all.
+  We can see this by running <code>showkey -k</code>, which will echo back the keypresses.
+</p>
+
+<pre><code class="language-bash">$ showkey -k
+keycode   6 press
+keycode   6 release
+
+keycode  42 press
+keycode   6 press
+keycode   6 release
+keycode  42 release
+
+keycode 100 press
+keycode   6 press
+keycode   6 release
+keycode 100 release
+
+keycode  29 press
+keycode   6 press
+keycode   6 release
+keycode  29 release
+
+keycode  29 press
+keycode 100 press
+keycode   6 press
+keycode   6 release
+keycode  29 release
+keycode 100 release
+
+keycode  56 press
+keycode   6 press
+keycode   6 release
+keycode  56 press
+
+keycode  29 press
+keycode  56 press
+keycode   6 press
+keycode   6 release
+keycode  56 release
+keycode  29 release
+</code></pre>
+
+<p>
+  We see that the computer registers the keystrokes perfectly well.
+  Keycodes 42, 100, 29, and 56 are respectively <kbd>Shift</kbd>, <kbd>AltGr</kbd>, <kbd>Control</kbd>, and <kbd>Alt</kbd>.
+  This can be double checked by running <code>awk 'NR==X{print $4}' 2bfixd.map</code>, where <code>X</code> is the number in question, plus one.
+  We can see the resulting keymaps by running the following command.
+</p>
+
+<pre><code class="language-bash">$ showkey -a
+5    53 0065 0x35
+%    37 0045 0x25
+^]   29 0035 0x1d
+^[5  27 0065 0x1b
+     53 0065 0x35
+</code></pre>
