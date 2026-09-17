@@ -189,3 +189,46 @@ keycode  29 release
     print;
 }
 </code></pre>
+
+<p>
+  Perl is so neat&mdash;I love the way it looks.
+  I don't intend for this to be a Perl tutorial, so I'll just explain what the code does instead of working through the syntax.
+  The code first replaces <code>8,12</code> in the defined keymaps with <code>8-9,12</code> so that the combination <kbd>Alt+Shift</kbd> is actually recognized as a valid input.
+  Then, for each line that starts like <code>keycode   x =</code>, then determines what the new column should be.
+  My logic here was that all symbols I do want to be defined as some meta combination has the same kind of naming convention.
+  For example, for <kbd>M-!</kbd> the exclamation mark is denited <code>exclam</code> on line 3, and for <kbd>M-%</kbd> the percent sign is defined <code>percent</code> on line 7.
+  That is, all symbols and glyphs I do want <kbd>Alt+Shift</kbd> to be defined for are all lowercase words.
+  So the Perl script makes it so that all such words are appended to the phrase <code>Meta_</code>, so that <code>Meta_exclam</code>, <code>Meta_percent</code>, &amp;c. are the only entries in that column that are not <code>VoidSymbol</code>.
+  The only entries where I ensure that is not the case is for the modifier buttons <kbd>Shift</kbd>, <kbd>Alt</kbd>, <kbd>Esc</kbd>, &amp;c.
+  I fear those buttons may become locked in some situations.
+  I also set column three of line 14 to be <code>Control_backslash</code>, since I have backslash mapped to keycode 13.
+  If you're confused about the line numbers, it's because the keymaps declaration is on the first line, and Perl and awk start counting from zero and one respectively (and the Perl script is reading the keycodes directly).
+</p>
+
+<p>
+  So now, by executing the following command, the keymaps update to have <kbd>Alt+Shift</kbd> defined.
+</p>
+
+<pre><code class="language-bash">$ perl fix.pl 2bfixd.map > fixd.map && loadkeys fixd.map</code></pre>
+
+<p>
+  In my experience, executing <code>loadkeys</code> requires root access, which is good, because when I wrote this script I mangled my keymap a couple of times and I had to reboot.
+  This overwrite of the keymap is fortunately only temporary.
+  Having fixed the kaymaps now, though, I wondered why it hadn't been addressed before.
+</p>
+
+<p>
+  I ended up making a pull request to the kbd repository, which was accepted :^)
+  So I am now an official contributor to Linux software!
+</p>
+
+<pre><code class="language-bash">$ git -P diff no.map
+@@ -1,4 +1,5 @@
+<span style="color:rgb(255,0,0)">- keymaps 0-2,4,6,8,12</span>
+<span style="color:rgb(0,255,0)">+ keymaps 0-2,4,6,8-9,12</span>
+<span style="color:rgb(0,255,0)">+ alt_is_meta</span>
+</code></pre>
+
+<p>
+  This was my contribution, by the way.
+</p>
