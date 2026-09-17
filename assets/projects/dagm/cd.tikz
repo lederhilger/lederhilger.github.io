@@ -1,6 +1,14 @@
 \begin{tikzpicture}[color = white]
 	\begin{scope}[scale = 1]
-			    \def\lenngth{1}
-			    \draw[-latex] (-1,0)--(1,0);
+			    \def\length{1}
+			    \def\tidbit{.2}
+			    \draw[-latex] (-{\length+\tidbit},0)--({\length+\tidbit},0);
+			    \draw[-latex] (0,-{\length+\tidbit})--(0,{\length+\tidbit});
+			    \draw plot file {cdkp999.table};
+			    \draw[color=white!90!black] plot file {cdkp99.table};
+			    \draw[color=white!80!black] plot file {cdkp9.table};
+			    \draw[color=white!70!black] plot file {cdkp707107.table};
+			    \draw[color=white!60!black] plot file {cdkp447214.table};
+			    \draw[color=white!50!black] plot file {cdk0.table};
 	\end{scope}
 \end{tikzpicture}
