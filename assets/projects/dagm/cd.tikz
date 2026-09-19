@@ -2,8 +2,8 @@
 	\begin{scope}[scale = 1]
 			    \def\length{1}
 			    \def\tidbit{.2}
-			    \draw[-latex] (-{\length+\tidbit},0)--({\length+\tidbit},0);
-			    \draw[-latex] (0,-{\length+\tidbit})--(0,{\length+\tidbit});
+			    \draw[-latex] ({-(\length+\tidbit)},0)--({\length+\tidbit},0);
+			    \draw[-latex] (0,{-(\length+\tidbit)})--(0,{\length+\tidbit});
 			    \draw plot file {cdkp999.table};
 			    \draw[color=white!90!black] plot file {cdkp99.table};
 			    \draw[color=white!80!black] plot file {cdkp9.table};
