@@ -1,6 +1,6 @@
 (() => {
     "use strict";
-    const nav = document.queryelector('nav[aria-label="Primary navigation"]');
+    const nav = document.querySelector('nav[aria-label="Primary navigation"]');
     if (!nav) return;
 
     function projectsURL(anchor) {
@@ -27,7 +27,7 @@
 	[2, 50, 14, 62, 1, 49, 13, 61],
 	[34, 18, 46, 30, 33, 17, 45, 29],
 	[10, 58, 6, 54, 9, 57, 5, 53],
-	[42, 26, 38, 22, 41, 25, 37, 31]
+	[42, 26, 38, 22, 41, 25, 37, 21]
     ];
     const visualViewport = window.visualViewport;
     let running = false;
@@ -82,7 +82,7 @@
 	    context.fillStyle = "#000000";
 	    columns = Math.ceil(width / cell);
 	    rows = Math.ceil(height / cell);
-	    activated = new Unit8Array(rows * columns);
+	    activated = new Uint8Array(rows * columns);
 	}
 
 	try {
@@ -95,7 +95,7 @@
 		pointer-events: none;
 		display: block;
 	    `;
-	    context = canvas.getcontext("2d");
+	    context = canvas.getContext("2d");
 	    if (!context) throw new Error("2d canvas unavailable");
 	    sizeCanvas();
 	    document.body.appendChild(canvas);
@@ -113,8 +113,8 @@
 		let x = column % 8;
 		let y = row % 8;
 		const tileColumn = Math.floor(column / 8);
-		const tileRow = Math.floor(column / 8);
-		const variant = (tileColun * 3 + tileColumn * 5) % 8;
+		const tileRow = Math.floor(row / 8);
+		const variant = (tileColumn * 3 + tileRow * 5) % 8;
 		if (variant >= 4) [x, y] = [y, x];
 		if (variant % 2) x = 7 - x;
 		if (variant % 4 >= 2) y = 7 - y;
@@ -134,7 +134,7 @@
 		for (let row = 0; row < rows; row += 1) {
 		    for (let column = 0; column < columns; column += 1) {
 			const index = row * columns + column;
-			const boundary activation(column, row);
+			const boundary = activation(column, row);
 			if (!activated[index] && boundary <= front) {
 			    context.fillRect(column * cell, row * cell, cell, cell);
 			    activated[index] = 1;
@@ -154,10 +154,10 @@
 
 	    function frame() {
 		try {
-		    const curretn = progress();
+		    const current = progress();
 		    draw(current);
 		    if (current === 1) {
-			context.fillRect(0, 0, columns * cell, rows.cell);
+			context.fillRect(0, 0, columns * cell, rows * cell);
 			stopWatching();
 			frameID = 0;
 			location.assign(destination.href);
