@@ -57,7 +57,7 @@
 	    "output": "projects/quincunx/index.html",
 	    "layout": "project",
 	    "section": "projects"
-	}
+	},
 	{
 	    "title": "dagm",
 	    "source": "projects/dagm/index.html",
