@@ -1,0 +1,31 @@
+<h1><a href="https://github.com/lederhilger/quincunx">quincunx</a></h1>
+
+<p>
+  Discussing how the introductory course on mechanics ought to implement numerics, <a href="https://mn.uio.no/math/personer/vit/karstent/">Karsten</a> and I were perhaps somehwat in disagreement.
+  I knew that the second mandatory assignment the students had to complete (which was something to the effect of particle image velocimetry interface recognition) was almost universally hated by the students.
+  First of all, this assignment barely counted as numerical work.
+  Second, this assignment evidently did not do its job in terms of getting students interested in mechanics as a subject.
+  In my opinion, the main problem mechanics has at the Department of Mathematics at the University of Oslo is that the students fail to recognize the mathematics of it all.
+  The courses at the graduate level are all courses in partial differential equations and methods thereof, but this is completely lost on the students that take the introductory course.
+  Karsten would go on to somewhat overhaul the curriculum, and in my opinion improve the course overall.
+  Still, I felt the course could improve by the implementation of some numerical work.
+  Karsten told me he had an idea for an assignment on modeling the trade winds as sinusoidals along lines of longitude (north-south).
+  I told him about the second mandatory assignment in <a href="https://mn.uio.no/math/personer/vit/mikaem/">Mikael</a>'s course Numerical Methods for Partial Differential Equations, where the students are given some skeleton code, which they have to fill in.
+  This course is almost universally loved by the students, and I had found the assignment very fun.
+  Karsten was hesitant, so I told him I could implement it for him, and he could do what he wanted with it.
+</p>
+
+<p>
+  And so I went on thinking of interesting ways to implement this in a way that would be interesting for the students, and make them realize mechanics opens the door for a lot of very interesting math.
+  Having read all the classics, I thought a complex analysis approach to fluid mechanics would serve as a quaint such introduction.
+  I went looking for conformal transformations of the globe (that wasn't necessarily the Mercator projection), for I knew of Riemann's stereographic projection.
+  Being able to visualize the trade winds on a flat map could also perhaps inspire the students to be a little creative.
+  Looking through the Wikipedia entry for map projections, I found the perfect candidate: Peirce's quincuncial projection.
+</p>
+
+<p>
+  Soon enough, the time came where I had to travel to Svalbard, and I got too busy with my other obligations, and thus the project fell through.
+  I had only made a partial implementation in Python at that point, and Karsten had made the assignment all by himself.
+  In the time since, I have thought about this little project of mine periodically, and I have now finally decided to complete it.
+  Since I don't have any reason to make a map of the world now though, I figured I would make a map of the night sky, choosing to transform the constellations instead of the continents.
+</p>
